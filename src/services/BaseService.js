@@ -1,33 +1,37 @@
 
-import localStorage from 'local-storage';
 import axios from 'axios';
 
+import constants from 'res/constants';
 
+import AsyncStorage from '@react-native-community/async-storage';
 
-const DEV = true;
-const apiKey = "Adc9V3Lx1LQNtmp0kmbCouZrFPZY4QrQ9UtEoP8p7jVzaVutcxVZBOAviFYlXy2l";
+const apiKey = "8WMgsvWT9j8E9cTPCx9uz7yI5AEzSHBRGHIJJaxo8WTWyTq1x10e7VMvt7n24VSA";
 class BaseService {
 
     constructor() {
-        this.baseUrl = null;
-        if (DEV) {
-            this.baseUrl = "http://localhost:8000/api";
-        }
+        this.init();
 
-        var token = "";
-        const user = localStorage.get('user');
-        
+    }
 
-        if (user !== null){
+    async init() {
+       
+
+        let token = "";
+        let user = await AsyncStorage.getItem('@user');
+
+        if (user){
+             user = JSON.parse(user);
+             
              token = user.token.accessToken;
            }
 
 
         //set axios defaults
-        axios.defaults.baseURL = this.baseUrl;
+        axios.defaults.baseURL = constants.BASE_URL;
         axios.defaults.headers.common['Accept'] = 'application/json';
         axios.defaults.headers.common['X-Authorization'] = apiKey;
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
         
 
     }

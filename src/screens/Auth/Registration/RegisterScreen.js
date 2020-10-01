@@ -38,8 +38,7 @@ const labels = ["Personal Information","Institution","Bank Details","Selfie"];
       loading: false,
       currentPosition: 0,
     }
-    this.params = this.props.navigation.getParam('params');
-    console.log(this.params);
+   
   }
 
   doSomething = async () => {

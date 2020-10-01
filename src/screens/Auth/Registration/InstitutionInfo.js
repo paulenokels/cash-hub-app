@@ -19,6 +19,7 @@ import { TextField } from 'react-native-material-textfield';
 
 import ISMaterialPicker from 'library/components/ISMaterialPicker';
 import states from 'res/states';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 
@@ -27,10 +28,9 @@ export default class InstitutionInfo extends Component {
         super(props);
 
         this.state = {
-            InstitutionName: null,
-            state: null,
-            isStudent: null,
-            
+            institutionName: '',
+            institutionState: '',
+            userTypeId: 0,
             errors: {
                 
             }
@@ -40,26 +40,63 @@ export default class InstitutionInfo extends Component {
     async componentDidMount() {
 
     }
-    handleContinue = () => {
+    handleContinue = async () => {
         console.log("handle continue pressed");
-        this.props.onContinue();
+        const formValid = await this.validateForm();
+        if (formValid) {
+            let newUser = await AsyncStorage.getItem('@new_user');
+            const { userTypeId, institutionName, institutionState } = this.state;
+            newUser = JSON.parse(newUser);
+            newUser = {...newUser, type_id: userTypeId, institution_name: institutionName, institution_state: institutionState };
+            await AsyncStorage.setItem('@new_user', JSON.stringify(newUser));
+            this.props.onContinue();
+        }
+        
+    }
+
+    validateForm = async () => {
+        let formValid = true;
+        let errors = {};
+        this.setState({errors});
+        const { userTypeId, institutionName, institutionState } = this.state;
+        console.log(userTypeId);
+        if (userTypeId == 0) {
+            errors.userTypeIdError = "Please select an option.";
+            formValid = false;
+        }
+        else if (userTypeId == 1) {
+            if (!institutionName) {
+                errors.institutionNameError = "Please fill in your institution name";
+                formValid = false;
+            }
+
+            if (!institutionState) {
+                errors.institutionStateError = "Please select the state where your institution is located";
+                formValid = false;
+            }
+        } 
+
+        //set error if any
+        await this.setState({errors});
+
+        return formValid;
     }
 
 
     renderInstitutionDetails() {
-        const { isStudent, errors } = this.state;
+        const { userTypeId, errors } = this.state;
 
-        if(isStudent == "I am a Student") {
+        if(userTypeId == 1) {
             return (
                 <View>
                   <Text style={R.pallete.formSubTitle}>INSTITUTION DETAILS</Text>
 
                      <TextField
                   label='Name of Tertiary Institution'
-                  error={errors.InstitutionNameError}
+                  error={errors.institutionNameError}
                   ref={this.InstitutionRef}
-                  onChangeText={(InstitutionName) => {
-                      this.setState({ InstitutionName });
+                  onChangeText={(institutionName) => {
+                      this.setState({ institutionName });
                   }}
                   
                  {...R.pallete.textFieldStyle}
@@ -70,10 +107,12 @@ export default class InstitutionInfo extends Component {
             <ISMaterialPicker 
                 items={states} 
                 label="State where located"
-                errorText={errors.stateError}
-                onValueChange={async (state, index) => {
-                  if (index === 0) return this.setState({state: null});
-                 await this.setState({state})
+                errorText={errors.institutionStateError}
+                onValueChange={async (institutionState, index) => {
+                  if (index === 0) return this.setState({institutionState: null});
+                  console.log(institutionState);
+                 await this.setState({institutionState, errors: {}});
+                 
 
                 }}
                 />
@@ -93,10 +132,9 @@ export default class InstitutionInfo extends Component {
                 <ISMaterialPicker 
                 items={[{"name":"I am a Student"}, {"name":"I am NOT a Student"}]} 
                 label="Are you a student ?"
-                errorText={errors.stateError}
+                errorText={errors.userTypeIdError}
                 onValueChange={async (isStudent, index) => {
-                  if (index === 0) return this.setState({isStudent: null});
-                 await this.setState({isStudent})
+                 await this.setState({userTypeId: index, errors:{}})
 
                 }}
                 />

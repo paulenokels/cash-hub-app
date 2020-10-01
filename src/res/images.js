@@ -13,6 +13,8 @@ const images = {
   "cashhub": require('./images/cashhub.jpeg'),
   "register": require('./images/register.jpg'),
   "selfie": require('./images/selfie.png'),
+  "success": require('./images/success.png'),
+  "wallet": require('./images/wallet.png'),
 
 
 }

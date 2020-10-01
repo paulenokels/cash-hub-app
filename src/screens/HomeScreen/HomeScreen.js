@@ -8,16 +8,10 @@ import {
 } from 'react-native';
 
 
-import { BottomNavigation } from 'react-native-material-ui';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { createBottomTabNavigator } from "react-navigation-tabs";
-import IconWithBadge from 'library/components/IconWithBadge';
 
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
-import Button from 'apsl-react-native-button'
 
 
 import R from 'res/R'
@@ -69,6 +63,7 @@ class HomeScreen extends Component {
         </View>
 
         <View style={styles.needALoanWrapper}>
+          <Text style={styles.welcomeText}>Welcome Enokela</Text>
           <Text style={styles.needALoanText}>Need a Loan ?</Text>
           <TouchableOpacity
             style={styles.getStartedButton}
@@ -76,11 +71,11 @@ class HomeScreen extends Component {
             onPress={() => { }}
           >
 
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={styles.getStartedText}> Get Started </Text>
-              <Ionicons onPress={() => { }} name="ios-arrow-forward" size={25} style={{ paddingStart: 6 }} color="#fff" />
+              <TouchableOpacity style={{ flexDirection: 'row', alignSelf: 'center' }} onPress={() => this.props.navigation.navigate('EligibilityStatusScreen')}>
+                <Text style={styles.getStartedText}> Apply Now </Text>
+                <Ionicons onPress={() => { }} name="ios-arrow-forward" size={25} style={{ paddingStart: 6 }} color="#fff" />
+              </TouchableOpacity>
 
-            </View>
 
 
           </TouchableOpacity>
@@ -176,9 +171,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
 
   },
-  drawerItemIcon: {
-    color: R.colors.appPrimary
-  },
+  
   needALoanWrapper: {
     alignContent: 'center',
     alignItems: 'center',
@@ -190,9 +183,13 @@ const styles = StyleSheet.create({
   getStartedText: {
     color: '#000',
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 13,
     color: '#fff',
 
+  },
+  welcomeText : {
+    fontSize: 20,
+    marginBottom: 10
   },
   getStartedButton: {
     alignSelf: 'center',
@@ -202,13 +199,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'green'
   },
   loanHistoryWrapper: {
-    marginStart: -5,
-    marginEnd: -5,
-    borderColor: '#ccc',
-    marginTop: 30,
-    minHeight: 250,
-    padding: 15,
-    elevation: 4,
+   ...R.pallete.card
   },
   historyHeader: {
     color: R.colors.appPrimary,
@@ -226,75 +217,7 @@ const styles = StyleSheet.create({
 
 
 
-const Drawer = createDrawerNavigator();
-
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props}>
-      <View style={[styles.containHeader, { backgroundColor: R.colors.appPrimary, marginTop: -5, paddingTop: 10, paddingBottom: 10 }]}>
-        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Image source={R.images.avatar} style={[R.pallete.avatar, { width: 100, height: 100 }]} />
-          <Text style={{ color: '#fff', marginTop: '3%', fontFamily: 'Segoe-UI' }}>{`Hi Paul`}</Text>
-          <Text style={{ color: '#fff', fontFamily: 'Segoe-UI' }}>{`achemepaulenokela@gmail.com`}</Text>
-        </View>
-      </View>
-      <DrawerItemList {...props} />
-
-    </DrawerContentScrollView>
-  );
-}
-
-function MyDrawer() {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator
-        drawerType={'back'}
-        drawerContent={props => <CustomDrawerContent {...props} />}
-        drawerStyle={{ backgroundColor: '#fff' }}
-        drawerContentOptions={{
-          labelStyle: {
-            color: R.colors.appPrimary
-          }
-        }}
-      >
-        <Drawer.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-home" size={30} style={styles.drawerItemIcon} color="#000" /> }}
-
-        />
-        <Drawer.Screen
-          name="Loan History"
-          component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-heart" size={30} style={styles.drawerItemIcon} color="#000" /> }}
-        />
-        <Drawer.Screen
-          name="Notifications"
-          component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-notifications" size={30} style={styles.drawerItemIcon} color="#000" /> }}
-        />
-        <Drawer.Screen
-          name="Profile"
-          component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-person" size={30} style={styles.drawerItemIcon} color="#000" /> }}
-        />
-        <Drawer.Screen
-          name="Settings"
-          component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-settings" size={30} style={styles.drawerItemIcon} color="#000" /> }}
-        />
-        <Drawer.Screen
-          name="Help"
-          component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-heart" size={30} style={styles.drawerItemIcon} color="#000" /> }}
-        />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
-
-
-export default MyDrawer;
+export default HomeScreen;
 
 
 

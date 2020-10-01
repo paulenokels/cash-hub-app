@@ -19,6 +19,8 @@ import { TextField } from 'react-native-material-textfield';
 import Loading from 'library/components/Loading'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicons  from 'react-native-vector-icons/Ionicons';
+import DeviceBackHandler from 'library/components/DeviceBackHandler';
+
 
 
  export default class LoginScreen extends Component {
@@ -39,8 +41,8 @@ import Ionicons  from 'react-native-vector-icons/Ionicons';
           passwordError: '',
       }
     }
-    this.params = this.props.navigation.getParam('params');
-    console.log(this.params);
+    //this.params = this.props.navigation.getParam('params');
+    //console.log(this.params);
   }
 
   doSomething = async () => {
@@ -96,6 +98,8 @@ import Ionicons  from 'react-native-vector-icons/Ionicons';
    return (
       
            <View style={styles.container}>
+        <DeviceBackHandler {...this.props} />
+
                  <View style={styles.headerContainer}>
                        <Image style={styles.headerLogo} source={R.images.airbnb} />
                    </View>

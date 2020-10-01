@@ -19,6 +19,9 @@ import {
   import ImagePicker from 'react-native-image-picker';
 
   import {PERMISSIONS, request} from 'react-native-permissions';
+import AsyncStorage from '@react-native-community/async-storage';
+import AuthService from 'services/AuthService';
+import Loading from 'library/components/Loading'
   
 
 export default class Selfie extends Component {
@@ -27,8 +30,7 @@ export default class Selfie extends Component {
 
         this.state = {
             selfie: R.images.selfie,
-            
-            
+            loading: false,
             errors: {
                 
             }
@@ -39,9 +41,49 @@ export default class Selfie extends Component {
         this._checkCameraAndPhotosPermission();
     }
 
-    handleContinue = () => {
+    handleContinue = async () => {
         console.log("handle continue pressed");
-        this.props.onContinue();
+        let errors = {};
+        this.setState({errors});//clear all errors
+        const { selfie } = this.state;
+        if (selfie === R.images.selfie) {
+            errors.error = 'Please take a picture of yourself';
+            this.setState({errors});
+            return;
+        }
+
+        let newUser = await AsyncStorage.getItem('@new_user');
+        newUser = JSON.parse(newUser);
+        newUser = {...newUser, photo: selfie};
+        this.registerUser(newUser);
+    }
+
+    registerUser = async (newUser) => {
+        this.setState({loading:true});
+        const req = await AuthService.registerUser(newUser);
+        //console.log(req);
+        const res = req.data;
+
+        console.log(res);
+
+        this.setState({loading:false});
+
+    
+        //successful reg
+         if (res.success === true) {
+            await AsyncStorage.removeItem('@new_user');
+            await AsyncStorage.setItem('@user', JSON.stringify(res.user));
+            this.props.onContinue();
+
+        }
+        //reg error
+        else {
+            let errors = {};
+            errors.error = res.msg;
+            this.setState({errors});
+        }
+
+
     }
 
    
@@ -73,7 +115,7 @@ export default class Selfie extends Component {
                 // You can also display the image using data:
                // const source = response.uri;
 
-                console.log(source);
+                //console.log(response);
 
                 this.setState({
                     selfie: source,
@@ -86,11 +128,13 @@ export default class Selfie extends Component {
 
 
     render() {
-        const { errors,selfie } = this.state;
+        const { errors,selfie, loading } = this.state;
+        if (loading) return <Loading text="Registering, please wait..." />
         return(
             <>
                 <ScrollView style={styles.container}>
                 <Text style={[R.pallete.formTitle, styles.header]}>TAKE SELFIE</Text>
+        {errors.error && <Text style={[R.pallete.errorText, {marginBottom: 10}]}>{errors.error}</Text>}
 
                 <Image style={styles.image} source={selfie} />
 
