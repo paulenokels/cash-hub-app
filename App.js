@@ -30,6 +30,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
 
 import {
   StyleSheet,
@@ -92,43 +94,43 @@ function MainDrawer() {
         <Drawer.Screen
           name="Home"
           component={MainScreenStack}
-          options={{ drawerIcon: () => <Ionicons name="ios-home" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="home" size={25} style={styles.drawerItemIcon} color="#000" /> }}
 
         />
         <Drawer.Screen
           name="My Loans"
           component={LoanStackScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-heart" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="coins" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
         <Drawer.Screen
           name="Manage Documents"
           component={ManageDocumentsScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-notifications" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="file-alt" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
          <Drawer.Screen
           name="Transfer to Bank"
           component={BankTransferScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-notifications" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="university" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
         <Drawer.Screen
           name="Input Loan Code"
           component={LoanCodeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-notifications" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="terminal" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
         <Drawer.Screen
           name="Profile"
           component={EditProfileScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-person" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="user-circle" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
         <Drawer.Screen
           name="Settings"
           component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-settings" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="cogs" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
         <Drawer.Screen
           name="Help"
           component={HomeScreen}
-          options={{ drawerIcon: () => <Ionicons name="ios-heart" size={30} style={styles.drawerItemIcon} color="#000" /> }}
+          options={{ drawerIcon: () => <Icon name="people-carry" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
       </Drawer.Navigator>
   );

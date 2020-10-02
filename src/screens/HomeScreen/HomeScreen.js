@@ -4,76 +4,92 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from 'react-native';
 
+import AsyncStorage from '@react-native-community/async-storage'
 
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
+import UserService from 'services/UserService';
+import { formatCurrency } from 'library/utils/StringUtils'
 
 
 import R from 'res/R'
 
-const loans = [
-  {
-    "amount": "20,000",
-    "due_date": "March 3rd, 2020",
-    "status": 'PAID'
-  },
-  {
-    "amount": "100,000",
-    "due_date": "March 20th, 2020",
-    "status": 'PAID'
-  },
-  {
-    "amount": "1,000",
-    "due_date": "April 20th, 2020",
-    "status": 'UNPAID'
-  },
-]
+
 
 class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      user:null,
+      userSummary:null,
     };
 
 
 
   }
 
+  componentDidMount() {
+    this.getUser();
+    this.getUserSummary();
+  }
+
+  getUser = async() => {
+    let user = await AsyncStorage.getItem('@user');
+    user = JSON.parse(user);
+    this.setState({user});
+  }
+
+  getUserSummary = async () => {
+    const req = await UserService.getUserSummary();
+    const res = req.data;
+    let userSummary = {};
+
+    if (res.success) {
+      userSummary.loans = res.loans;
+      userSummary.accountBalance = res.account_balance;
+      userSummary.level = res.level;
+      this.setState({userSummary});
+    }
+  }
+
 
   render() {
-    return (
+    const { user, userSummary } = this.state;
+   if (user) return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Ionicons onPress={() => this.props.navigation.toggleDrawer()} name="ios-menu" size={30} style={styles.menuIcon} color="#fff" />
+          <Icon onPress={() => this.props.navigation.toggleDrawer()} name="bars" size={25} style={styles.menuIcon} color="#fff" />
 
           <Text style={styles.headerText} >Cash HUB</Text>
-          <Image source={R.images.avatar} style={[R.pallete.avatar, { width: 30, height: 30 }]} />
+          <Image source={{uri: R.constants.FILE_SERVER+user.photo}} style={[R.pallete.avatar, { width: 30, height: 30 }]} />
 
         </View>
 
         <View style={styles.accountBalanceWrapper}>
           <Text style={styles.accountBalanceTitle}>Account Balance</Text>
-          <Text style={styles.accountBalance}>&#8358;{`20,000`}</Text>
+   {userSummary ? <Text style={styles.accountBalance}>{formatCurrency(userSummary.accountBalance)}</Text>  :  <ActivityIndicator />}
+          
         </View>
 
         <View style={styles.needALoanWrapper}>
-          <Text style={styles.welcomeText}>Welcome Enokela</Text>
+   <Text style={styles.welcomeText}>Welcome {user.last_name}</Text>
           <Text style={styles.needALoanText}>Need a Loan ?</Text>
           <TouchableOpacity
             style={styles.getStartedButton}
             activeOpacity={.5}
-            onPress={() => { }}
+           
           >
 
               <TouchableOpacity style={{ flexDirection: 'row', alignSelf: 'center' }} onPress={() => this.props.navigation.navigate('EligibilityStatusScreen')}>
                 <Text style={styles.getStartedText}> Apply Now </Text>
-                <Ionicons onPress={() => { }} name="ios-arrow-forward" size={25} style={{ paddingStart: 6 }} color="#fff" />
+                <Icon onPress={() => { }} name="arrow-right" size={25} style={{ paddingStart: 6 }} color="#fff" />
               </TouchableOpacity>
 
 
@@ -82,21 +98,35 @@ class HomeScreen extends Component {
 
         </View>
 
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 10, marginTop: 15, marginBottom: 2, paddingBottom: 2, borderBottomWidth: 1, borderBottomColor: '#ccc'}}>
+          <Text style={{fontSize: 11, fontWeight: 'bold'}}>Your Level</Text>
+          <Text style={{fontSize: 11, fontWeight: 'bold'}}>Max amount for level</Text>
+        </View>
+
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 10, marginTop: 0}}>
+          {userSummary ? <Text style={{fontSize: 18, fontWeight: 'bold', color: 'green'}}>{userSummary.level.name}</Text> : <ActivityIndicator />}
+          {userSummary ? <Text style={{fontSize: 18, fontWeight: 'bold', color: 'green'}}>{formatCurrency(userSummary.level.max_amount)}</Text> : <ActivityIndicator />}
+
+        </View>
+
         <View style={styles.loanHistoryWrapper}>
           <Text style={styles.historyHeader}>Loan History</Text>
 
-          {loans.map((loan, key) => {
+          {userSummary && userSummary.loans.length > 0 && userSummary.loans.map((loan, key) => {
             return (
               <View key={key} style={{marginBottom: 30}}>
                 <View style={{ flexDirection: 'row' }}>
-                  <Ionicons onPress={() => { }} name="ios-wallet" size={30} style={{ paddingStart: 6, height: 30, marginTop: 7 }} color="green" />
+                  <Icon onPress={() => { }} name="coins" size={30} style={{ paddingStart: 6, height: 30, marginTop: 7 }} color="green" />
                   <View style={{ marginLeft: 10, marginBottom: 10, marginTop: 10, paddingTop: -10 }}>
-                    <Text style={{ color: '#000', fontSize: 17, }}>&#8358;{loan.amount}</Text>
-                    <Text style={{ color: 'grey', fontSize: 11, }}>Due : {loan.due_date}</Text>
+                    <Text style={{ color: '#000', fontSize: 17, }}>{formatCurrency(loan.amount)}</Text>
+                    <Text style={{ color: 'grey', fontSize: 11, }}>Due : {loan.payback_date}</Text>
                   </View>
 
                 </View>
-                <Text style={{ alignSelf: 'flex-end', marginTop: -50, fontWeight: 'bold', fontSize: 11, color: 'green', backgroundColor: 'lightblue', padding: 7, borderRadius: 10}}>{loan.status}</Text>
+                {loan.status == 'APPROVED' && <Text style={{ alignSelf: 'flex-end', marginTop: -50, fontWeight: 'bold', fontSize: 11, color: 'green', backgroundColor: 'lightblue', padding: 7, borderRadius: 10}}>{loan.status}</Text>}
+                {loan.status == 'PENDING' && <Text style={{ alignSelf: 'flex-end', marginTop: -50, fontWeight: 'bold', fontSize: 11, color: 'white', backgroundColor: 'orange', padding: 7, borderRadius: 10}}>{loan.status}</Text>}
+                {loan.status == 'REJECTED' && <Text style={{ alignSelf: 'flex-end', marginTop: -50, fontWeight: 'bold', fontSize: 11, color: 'white', backgroundColor: 'red', padding: 7, borderRadius: 10}}>{loan.status}</Text>}
+                
 
 
               </View>
@@ -105,11 +135,11 @@ class HomeScreen extends Component {
           <TouchableOpacity
             style={[styles.getStartedButton, { backgroundColor: 'orange' }]}
             activeOpacity={.5}
-            onPress={() => { }}
+            onPress={() => { this.props.navigation.navigate('MyLoansScreen')}}
           >
 
             <View style={{ flexDirection: 'row' }}>
-              <Text style={[styles.getStartedText]}> View More </Text>
+              <Text style={[styles.getStartedText]}> Manage Loans </Text>
 
             </View>
 
@@ -120,6 +150,8 @@ class HomeScreen extends Component {
       </View>
 
     );
+
+    return null;
   }
 }
 
@@ -193,7 +225,7 @@ const styles = StyleSheet.create({
   },
   getStartedButton: {
     alignSelf: 'center',
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 10,
     marginTop: 5,
     backgroundColor: 'green'

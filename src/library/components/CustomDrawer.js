@@ -12,6 +12,7 @@ import R from 'res/R'
 //import UserService from 'services/UserService'
 
 
+import AsyncStorage from '@react-native-community/async-storage'
 
 
 export default class CustomDrawer extends Component {
@@ -31,22 +32,31 @@ export default class CustomDrawer extends Component {
     }
 
     componentDidMount() {
-      //UserService.getUser().then(user => this.setState({user}));
+     this.getUser();
 
     }
 
+    getUser = async() => {
+      let user = await AsyncStorage.getItem('@user');
+      user = JSON.parse(user);
+      this.setState({user});
+    }
     
 
      render() {
-       return (
+       const { user } = this.state;
+
+      if (user) return (
        <View style={[styles.containHeader, { backgroundColor: R.colors.appPrimary, marginTop: -5, paddingTop: 10, paddingBottom: 10 }]}>
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Image source={R.images.avatar} style={[R.pallete.avatar, { width: 100, height: 100 }]} />
-          <Text style={{ color: '#fff', marginTop: '3%', fontFamily: 'Segoe-UI' }}>{`Hi Paul`}</Text>
-          <Text style={{ color: '#fff', fontFamily: 'Segoe-UI' }}>{`achemepaulenokela@gmail.com`}</Text>
+          <Image source={{uri:R.constants.FILE_SERVER+user.photo}} style={[R.pallete.avatar, { width: 85, height: 85 }]} />
+          <Text style={{ color: '#fff', marginTop: '3%', fontFamily: 'Segoe-UI' }}>{`Hi ${user.first_name}`}</Text>
+          <Text style={{ color: '#fff', fontFamily: 'Segoe-UI' }}>{user.email}</Text>
         </View>
       </View>
        )
+
+       return null;
     }
 }
 

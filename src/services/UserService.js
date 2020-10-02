@@ -20,6 +20,17 @@ class UserService extends BaseService{
 
         }
     }
+
+    async getUserSummary() {
+      
+        try {
+           return await axios.get('/user/summary');
+        }
+        catch (err) {
+            return err;
+
+        }
+    }
    
    
     
