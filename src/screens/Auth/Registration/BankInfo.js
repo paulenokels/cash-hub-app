@@ -98,12 +98,12 @@ export default class BankInfo extends Component {
         formValid = false;
       }
 
-      bankAccounts.forEach((bankAcount, index) => {
-        if (!bankAcount.account_number || !bankAcount.account_type || !bankAcount.bank_id) {
-          errors.bankError = "Please make sure you fill in the account number, account type and select the appropriate bank for all your added bank accounts";
-          formValid = false;
-        }
-      });
+      // bankAccounts.forEach((bankAcount, index) => {
+      //   if (!bankAcount.account_number || !bankAcount.account_type || !bankAcount.bank_id) {
+      //     errors.bankError = "Please make sure you fill in the account number, account type and select the appropriate bank for all your added bank accounts";
+      //     formValid = false;
+      //   }
+      // });
 
       await this.setState({errors});
 

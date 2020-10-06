@@ -20,7 +20,8 @@ import Loading from 'library/components/Loading'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicons  from 'react-native-vector-icons/Ionicons';
 import DeviceBackHandler from 'library/components/DeviceBackHandler';
-
+import AuthService from 'services/AuthService';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
  export default class LoginScreen extends Component {
@@ -51,6 +52,13 @@ import DeviceBackHandler from 'library/components/DeviceBackHandler';
   }
 
   handleLogin = async () => {
+    console.log("logging in...");
+    const req = await AuthService.doLogin(this.state.email, this.state.password);
+    const res = req.data;
+    
+    console.log(req);
+    await AsyncStorage.setItem('@user', JSON.stringify(res.user));
+
       this.props.navigation.navigate("HomeScreen");
   }
 
@@ -88,7 +96,7 @@ import DeviceBackHandler from 'library/components/DeviceBackHandler';
                   <Text style={{fontFamily: 'Segoe-UI'}}>Dont have an account ? Register</Text>
               </TouchableOpacity>
               <View>
-                  <Button onPress={this.handleLogin}>Login</Button>
+                  <Button onPress={() => this.handleLogin()}>Login</Button>
               </View>
           </View>
       )

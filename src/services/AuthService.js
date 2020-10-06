@@ -15,7 +15,7 @@ class AuthService extends BaseService{
         }
           
         try {
-           return await axios.post('/admin/login', data);
+           return await axios.post('user/login', data);
         }
         catch (err) {
             return err;

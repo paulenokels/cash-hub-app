@@ -99,10 +99,10 @@ class EligibilityStatusScreen extends Component {
           </TouchableOpacity>
           :
           <View>
-            <Text style={styles.checkFail}>Eligibility check FAILED. Please upload the necessary documents. If you have uploaded the required documents, please wait a while for us to review and approve your provided document, note this may take up to 24 hours</Text>
-            <TouchableOpacity style={styles.uploadDocBtn} onPress={() => this.props.navigation.navigate('UploadDocumentsScreen')}>
+            <Text style={styles.checkFail}>Eligibility check FAILED. {report.reason}</Text>
+            {/* <TouchableOpacity style={styles.uploadDocBtn} onPress={() => this.props.navigation.navigate('UploadDocumentsScreen')}>
               <Text style={styles.uploadText}>Upload Document(s)</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
           
           }
