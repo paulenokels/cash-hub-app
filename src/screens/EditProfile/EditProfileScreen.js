@@ -22,13 +22,11 @@ import { TextField } from 'react-native-material-textfield';
 import Button from 'apsl-react-native-button'
 import ISMaterialPicker from 'library/components/ISMaterialPicker';
 import states from 'res/states.json'
-import UserService from 'services/UserService'
 import BankService from 'services/BankService'
 import ProfileService from 'services/ProfileService'
 import { RNToasty } from 'react-native-toasty'
 import { PERMISSIONS, request } from 'react-native-permissions';
 import AsyncStorage from '@react-native-community/async-storage';
-import { acc } from 'react-native-reanimated';
 
 
 

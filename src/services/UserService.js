@@ -5,12 +5,14 @@ import axios from 'axios';
 class UserService extends BaseService{
     
     constructor() {
-        super();
+      super();
     }
 
   
 
     async getUserLoans() {
+      
+
       
         try {
            return await axios.get('/user/loans');
@@ -22,7 +24,9 @@ class UserService extends BaseService{
     }
 
     async getUserSummary() {
-      
+        //this is the first call to be made to the back end after registration, so we need to reinitialize 
+        //axios and axios defaults
+       await (new BaseService()).init();
         try {
            return await axios.get('/user/summary');
         }

@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import R from 'res/R'
 
 export default class SplashScreen extends Component {
 
@@ -39,7 +40,7 @@ export default class SplashScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.appText} >Cash HUB</Text>
+        <Text style={styles.appText} >cash-HUB</Text>
 
       </View>
 
@@ -51,7 +52,7 @@ export default class SplashScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: R.colors.appPrimary,
     alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center'
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
 
   appText: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 30,
     color: 'white',
     textAlign: 'center',
     alignSelf: 'center',

@@ -37,8 +37,18 @@ export default class InstitutionInfo extends Component {
         };
     }
 
-    async componentDidMount() {
-
+   
+    componentDidMount() {
+        //auto form filling for fast prototyping
+        if (R.constants.DEV) {
+            this.setState({
+                userTypeId: 1,
+                institutionName: 'University of Agriculture',
+                institutionState: 'Benue',
+             
+            });
+            
+        }
     }
     handleContinue = async () => {
         console.log("handle continue pressed");

@@ -17,7 +17,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import UserService from 'services/UserService';
 import { formatCurrency } from 'library/utils/StringUtils'
 
-
+import { BackHandler } from 'react-native';
 import R from 'res/R'
 
 
@@ -26,6 +26,8 @@ class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+
     this.state = {
       user:null,
       userSummary:null,
@@ -36,17 +38,35 @@ class HomeScreen extends Component {
   }
 
   componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+
     this.getUser();
     this.getUserSummary();
   }
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+}
+handleBackButtonClick() {
+  if (this.props.navigation.isFocused()) {
+    BackHandler.exitApp();
+  }
+ 
+}
 
   getUser = async() => {
+    //await AsyncStorage.removeItem('@user');
     let user = await AsyncStorage.getItem('@user');
+    if (!user) {
+      this.props.navigation.navigate('LoginScreen');
+    }
     user = JSON.parse(user);
+    //console.log(user);
     this.setState({user});
   }
 
   getUserSummary = async () => {
+    console.log("Getting user summary");
+
     const req = await UserService.getUserSummary();
     const res = req.data;
     let userSummary = {};
@@ -67,7 +87,7 @@ class HomeScreen extends Component {
         <View style={styles.header}>
           <Icon onPress={() => this.props.navigation.toggleDrawer()} name="bars" size={25} style={styles.menuIcon} color="#fff" />
 
-          <Text style={styles.headerText} >Cash HUB</Text>
+          <Text style={styles.headerText} >cash-HUB</Text>
           <Image source={{uri: R.constants.FILE_SERVER+user.photo}} style={[R.pallete.avatar, { width: 30, height: 30 }]} />
 
         </View>

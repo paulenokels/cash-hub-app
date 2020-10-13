@@ -5,10 +5,12 @@ import axios from 'axios';
 class AppService extends BaseService{
     
     constructor() {
-        super();
+        super()
+      
     }
 
     async getBanks() {
+      
   
         try {
            return await axios.get('/app/banks');

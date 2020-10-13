@@ -57,18 +57,19 @@ export default class PersonalInfoForm extends Component {
         //auto form filling for fast prototyping
         if (R.constants.DEV) {
             this.setState({
-                firstName: 'Acheme',
-                lastName: 'Enokela',
-                otherName: 'Paul',
-                email: 'achemepaulenokela@gmail.com',
-                phoneNumber: '07061097224',
+                firstName: 'Joseph',
+                lastName: 'Ibrahim',
+                otherName: 'Ojimaojo',
+                email: 'ibro@gmail.com',
+                phoneNumber: '08155668523',
                 state: 'Benue',
                 city: 'Makurdi',
                 dateOfBirth: '1992-11-03',
                 address: 'P. 173 FHE, North Bank Makurdi',
-                password: 'achethegreat',
+                password: '123',
                 citiesInState : states[6].locals
             });
+            
         }
     }
 
@@ -126,7 +127,7 @@ export default class PersonalInfoForm extends Component {
         console.log(formValid);
         if (!formValid) return;
 
-        const validEmailandPhone = this.checkEmailAndPhone();
+        const validEmailandPhone = await this.checkEmailAndPhone();
 
         if (validEmailandPhone) {
             const { firstName, lastName, otherName, email, phoneNumber, dateOfBirth, state, city, password, address } = this.state;

@@ -20,7 +20,10 @@ import LoanInfoScreen from 'screens/Loan/LoanInfoScreen';
 import LoanCodeScreen from 'screens/LoanApplication/LoanCodeScreen';
 import BankTransferScreen from 'screens/BankTransfer/BankTransferScreen';
 import EditProfileScreen from 'screens/EditProfile/EditProfileScreen';
+import HelpScreen from 'screens/Help/HelpScreen';
+import ContactSupportScreen from 'screens/Help/ContactSupportScreen';
 import PayScreen from 'screens/PayScreen';
+
 
 
 import { COLOR, ThemeContext, getTheme } from 'react-native-material-ui';
@@ -64,6 +67,18 @@ function LoanStackScreen() {
       <LoanStack.Screen name="LoanInfoScreen" component={LoanInfoScreen}  options={{ headerShown: true, title: 'Loan Information'}}/>
       <LoanStack.Screen name="PayScreen" component={PayScreen}  options={{ headerShown: true, title: 'Loan Payback'}}/>
     </LoanStack.Navigator>
+  )
+}
+
+const helpStack = createStackNavigator();
+
+function helpStackScreen() {
+  return (
+  <helpStack.Navigator>
+    <helpStack.Screen name="HelpScreen" component={HelpScreen} options={{ headerShown: false,  title: 'Get Help'}} />
+    <helpStack.Screen name="ContactSupportScreen" component={ContactSupportScreen} options={{ headerShown: true,  title: 'Contact Support'}} />
+
+  </helpStack.Navigator>
   )
 }
 
@@ -122,14 +137,14 @@ function MainDrawer() {
           component={EditProfileScreen}
           options={{ drawerIcon: () => <Icon name="user-circle" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="Settings"
           component={HomeScreen}
           options={{ drawerIcon: () => <Icon name="cogs" size={25} style={styles.drawerItemIcon} color="#000" /> }}
-        />
+        /> */}
         <Drawer.Screen
           name="Help"
-          component={HomeScreen}
+          component={helpStackScreen}
           options={{ drawerIcon: () => <Icon name="people-carry" size={25} style={styles.drawerItemIcon} color="#000" /> }}
         />
       </Drawer.Navigator>

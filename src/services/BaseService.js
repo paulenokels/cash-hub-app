@@ -10,13 +10,13 @@ class BaseService {
 
     constructor() {
         this.init();
-
+       
+      
     }
 
     async init() {
-       
-
-        let token = "";
+        console.log("initializing base service");
+        let token = ""; 
         let user = await AsyncStorage.getItem('@user');
 
         if (user){

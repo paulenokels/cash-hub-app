@@ -5,10 +5,6 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput,
-    TouchableHighlight,
-    Image,
-    Alert,
     ScrollView,
   } from 'react-native';
   
@@ -49,13 +45,13 @@ export default class BankInfo extends Component {
             bankAccounts: [{bank_id: 6, account_number: '3097960033', account_type: 'Savings'}]
            
         });
+        
     }
     this.getBanks();
     }
 
     getBanks = async() => {
       const req = await AppService.getBanks();
-      console.log(req);
       const res = req.data;
      if (res.success) {
         await this.setState({banks: res.banks, loading: false});
@@ -82,8 +78,9 @@ export default class BankInfo extends Component {
     }
 
     removeBankAccount = (index) => {
-      const { bankAccounts } = this.state;
+      let { bankAccounts } = this.state;
       bankAccounts.splice(index, 1);
+      console.log(bankAccounts);
       this.setState({bankAccounts});
     }
 
@@ -98,12 +95,12 @@ export default class BankInfo extends Component {
         formValid = false;
       }
 
-      // bankAccounts.forEach((bankAcount, index) => {
-      //   if (!bankAcount.account_number || !bankAcount.account_type || !bankAcount.bank_id) {
-      //     errors.bankError = "Please make sure you fill in the account number, account type and select the appropriate bank for all your added bank accounts";
-      //     formValid = false;
-      //   }
-      // });
+      bankAccounts.forEach((bankAcount, index) => {
+        if (!bankAcount.account_number || !bankAcount.account_type || !bankAcount.bank_id) {
+          errors.bankError = "Please make sure you fill in the account number, account type and select the appropriate bank for all your added bank accounts";
+          formValid = false;
+        }
+      });
 
       await this.setState({errors});
 
@@ -138,7 +135,6 @@ export default class BankInfo extends Component {
                   errorText={this.state.errors.accountTypeError}
                   onValueChange={(accountType, index_) => {
                    if (index_ === 0) return ;
-                    //this.setState({bankName})
                     console.log(accountType);
                     console.log(index);
                     bankAccounts[index].account_type = accountType;
@@ -150,8 +146,10 @@ export default class BankInfo extends Component {
                   items={banks} 
                   label="Select Bank"
                   errorText={this.state.errors.bankNameError}
-                  onValueChange={(bank, index__) => {
-                    if (index__ === 0) return;
+                  onValueChange={(b, bankIndex) => {
+                    if (bankIndex === 0) return;//'select bank'
+                    const bank = banks[bankIndex - 1];
+                    console.log(bank);
                     bankAccounts[index].bank_id = bank.id;
                     this.setState({bankAccounts})
   

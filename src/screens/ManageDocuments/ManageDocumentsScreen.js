@@ -65,7 +65,7 @@ class ManageDocumentsScreen extends Component {
                             <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
                             {document.status == 'APPROVED' && <Text style={styles.approvedText}>APPROVED</Text>}
                             {document.status == 'REJECTED' && <Text style={styles.errorText}>REJECTED</Text>}
-                            {document.status == 'PENDING' && <Text style={styles.pendingText}>PENDING</Text>}
+                            {document.status == 'PENDING' && <Text style={styles.pendingText}>PENDING VERIFICATION</Text>}
                             <Text>{document.document_number}</Text>
                             </View>
                         
@@ -75,7 +75,11 @@ class ManageDocumentsScreen extends Component {
 
     }
     else {
-        return <View> You have not uploaded any documents</View>
+        return (
+        <View> 
+            <Text  style={{textAlign: 'center', marginTop: 20}}>You have not uploaded any documents</Text>
+        </View>
+        )
     }
   }
 

@@ -24,7 +24,7 @@ class AuthService extends BaseService{
     }
 
     async registerUser(newUserObj) {
-        //console.log(newUserObj);
+        console.log(newUserObj.photo.uri);
         const formData = new FormData();
         formData.append('first_name', newUserObj.first_name);
         formData.append('last_name', newUserObj.last_name);
@@ -46,8 +46,12 @@ class AuthService extends BaseService{
 
         formData.append('selfie', {
             uri: newUserObj.photo.uri,
-            name: 'image.jpg',
-            type: 'image/jpeg'
+            name: 'image',
+            type: newUserObj.photo.type,
+            width: newUserObj.photo.width,
+            height: newUserObj.photo.height,
+            size: newUserObj.photo.fileSize,
+            
         });
 
       

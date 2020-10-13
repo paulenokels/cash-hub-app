@@ -21,6 +21,7 @@ import {
   import {PERMISSIONS, request} from 'react-native-permissions';
 import AsyncStorage from '@react-native-community/async-storage';
 import AuthService from 'services/AuthService';
+import BaseService from 'services/BaseService';
 import Loading from 'library/components/Loading'
   
 
@@ -66,13 +67,16 @@ export default class Selfie extends Component {
 
         console.log(res);
 
-        this.setState({loading:false});
+       
 
     
         //successful reg
-         if (res.success === true) {
-            await AsyncStorage.removeItem('@new_user');
+         if (res.success) {
             await AsyncStorage.setItem('@user', JSON.stringify(res.user));
+            await AsyncStorage.removeItem('@new_user');
+            this.setState({loading:false});
+            console.log("Registration successfull");
+
             this.props.onContinue();
 
         }
@@ -80,7 +84,7 @@ export default class Selfie extends Component {
         else {
             let errors = {};
             errors.error = res.msg;
-            this.setState({errors});
+            this.setState({errors, loading: false});
         }
 
 
@@ -91,15 +95,15 @@ export default class Selfie extends Component {
         const cameraStatus = await request(PERMISSIONS.ANDROID.CAMERA);
         const contactsStatus = await request(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
         
-        console.log(cameraStatus);
-        console.log(contactsStatus);
+        // console.log(cameraStatus);
+        // console.log(contactsStatus);
 
        
     };
 
     openCamera = () => {
         console.log("Open camera tapped")
-        ImagePicker.launchCamera({}, (response) => {
+        ImagePicker.launchCamera({quality: 0.5, noData: true,}, (response) => {
             // Same code as in above section!
              // console.log('Response = ', response);
 
@@ -110,7 +114,7 @@ export default class Selfie extends Component {
             } else if (response.customButton) {
                 console.log('User tapped custom button: ', response.customButton);
             } else {
-                const source = { uri: response.uri };
+                const source = { uri: response.uri, width: response.width, height: response.height, type: response.type, fileSize: response.fileSize, path: response.path };
 
                 // You can also display the image using data:
                // const source = response.uri;

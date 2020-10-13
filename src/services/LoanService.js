@@ -5,7 +5,7 @@ import axios from 'axios';
 class LoanService extends BaseService{
     
     constructor() {
-        super();
+       super()
     }
 
     async getEligibilityStatus() {
@@ -19,10 +19,11 @@ class LoanService extends BaseService{
         }
     }
 
-    async loanRequest(amount,paybackDate) {
+    async loanRequest(amount,paybackDate, creditCards) {
         const data = {
             amount: amount,
             payback_date: paybackDate,
+            credit_cards: creditCards
         }
         try {
            return await axios.post('/user/loan/request', data);
@@ -43,6 +44,18 @@ class LoanService extends BaseService{
 
         }
     }
+
+    async getUserCreditCards() {
+      
+        try {
+           return await axios.get('/user/credit-cards');
+        }
+        catch (err) {
+            return err;
+
+        }
+    }
+   
    
     async payback(loanId) {
         const data = {

@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  TextInput,
-  Button,
-  TouchableHighlight,
-  Image,
-  Alert,
-  ScrollView,
+  
 } from 'react-native';
 
-import AsyncStorage from '@react-native-community/async-storage';
-import R from 'res/R'
 
 import PersonalInfoForm from './PersonalInfoForm';
 import InstitutionInfo from './InstitutionInfo';
 import BankInfo from './BankInfo';
 import Selfie from './Selfie';
 
-import Loading from 'library/components/Loading'
 import StepIndicator from 'react-native-step-indicator';
 const labels = ["Personal Information","Institution","Bank Details","Selfie"];
 

@@ -106,7 +106,7 @@ import AsyncStorage from '@react-native-community/async-storage';
    return (
       
            <View style={styles.container}>
-        <DeviceBackHandler {...this.props} />
+        {/* <DeviceBackHandler {...this.props} /> */}
 
                  <View style={styles.headerContainer}>
                        <Image style={styles.headerLogo} source={R.images.airbnb} />

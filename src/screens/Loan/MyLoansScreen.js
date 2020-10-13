@@ -119,12 +119,16 @@ class MyLoansScreen extends Component {
 
                 { loading ? <Loading text="Getting your loans..." /> :
                     <View>
-                        {loans &&
+                        {loans && loans.length > 0 ?
                             <>
                                 {loans.map((loan, index) => {
                                     return this.renderLoan(loan, index);
                                 })}
                             </>
+                            :
+                            <View>
+                                <Text style={{textAlign: 'center', marginTop: 20}}>You have not applied for any loans</Text>
+                            </View>
                         }
                     </View>
                 }
