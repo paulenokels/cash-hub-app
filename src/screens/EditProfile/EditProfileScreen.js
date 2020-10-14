@@ -179,6 +179,26 @@ export default class EditProfileScreen extends Component {
 
   }
 
+  signOut = async () => {
+    Alert.alert(
+      'Sign Out',
+      'Are you sure you want to sign out?',
+      [
+      
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        { text: 'OK', onPress: async () => {
+          await AsyncStorage.removeItem('@user');
+          this.props.navigation.navigate("LoginScreen");
+        } }
+      ],
+      { cancelable: false }
+    );
+  }
+
   simpleUpdate = async () => {
     this.dismissModal();
     const { column, inputValue, inputTitle } = this.state;
@@ -352,12 +372,12 @@ export default class EditProfileScreen extends Component {
   }
   renderHeader() {
     return (
-        <View style={R.pallete.headerStyle}>
+        <View style={[R.pallete.headerStyle, {backgroundColor: R.colors.appPrimary, marginBottom: -10}]}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
-                <Icon name={'arrow-left'} size={20} color={'#000'}  />
+                <Icon name={'arrow-left'} size={20} color={'#fff'}  />
             </TouchableOpacity>
 
-            <Text style={R.pallete.headerText}>Cash-HUB</Text>
+            <Text style={[R.pallete.headerText, {color: 'white'}]}>Cash-HUB</Text>
 
         </View>
     );
@@ -374,10 +394,11 @@ export default class EditProfileScreen extends Component {
     return (
 
       <View style={styles.container}>
+              {this.renderHeader()}
+
         <ScrollView>
           <View style={styles.header}>
-            <View style={{ height: 120, backgroundColor: R.colors.appPrimary }}>
-              {this.renderHeader()}
+            <View style={{ height: 100, backgroundColor: R.colors.appPrimary }}>
             </View>
             <TouchableOpacity onPress={() => this.launchImagePicker()}>
               <Image source={{uri:`${R.constants.FILE_SERVER}${user.photo}`}} style={[R.pallete.avatar, styles.photo]} />
@@ -407,7 +428,7 @@ export default class EditProfileScreen extends Component {
                 {this.renderProfileItem("Email", user.email, "envelope", 1)}
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.setState({ showLocationModal: true })}>
-                {this.renderProfileItem("Location", `${user.city}, ${user.state}`, "map-pin", 2)}
+                {this.renderProfileItem("Location", `${user.city}, ${user.state}`, "map-marker", 2)}
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.setState({ inputTitle: "Address", column: 'address', inputValue: user.address, showInputModal: true })}>
                 {this.renderProfileItem("Address", user.address, "map-pin", 2)}
@@ -428,7 +449,7 @@ export default class EditProfileScreen extends Component {
             <View style={{ margin: 10, marginTop: 4 }}>
               <Text style={{ color: 'gray', fontSize: 12 }}>Bank Information</Text>
               <TouchableOpacity onPress={() => this.setState({ inputTitle: "BVN", column: 'bvn', inputValue: user.bvn, showInputModal: true })}>
-                {this.renderProfileItem("BVN", user.bvn, "mobile-alt", 3)}
+                {this.renderProfileItem("BVN", user.bvn, "fingerprint", 3)}
               </TouchableOpacity>
             </View>
 
@@ -446,7 +467,7 @@ export default class EditProfileScreen extends Component {
                      
                     </View>
                   <TouchableOpacity >
-                  {this.renderProfileItem(bankAccount.name, `${bankAccount.account_number}/${bankAccount.type}`, "mobile-alt", 3)}
+                  {this.renderProfileItem(bankAccount.name, `${bankAccount.account_number}/${bankAccount.type}`, "university", 3)}
                   </TouchableOpacity>
                 </>
                   )
@@ -454,6 +475,10 @@ export default class EditProfileScreen extends Component {
                 <TouchableOpacity style={styles.addAccountStyle} onPress={() => this.setState({showAddAccountModal: true, errors:{}})}>
                   <Icon name={'plus-circle'} size={20} style={{ marginEnd: 10, width: 30 }} />
                   <Text style={styles.addAccountText}>Add Account</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{marginTop: 25, marginBottom: 20}} onPress={this.signOut}>
+                    <Text style={{textAlign: 'center', color: '#000', fontWeight: 'bold'}}>Sign Out</Text>
                 </TouchableOpacity>
               </View>
               }

@@ -19,6 +19,7 @@ import { formatCurrency } from 'library/utils/StringUtils'
 
 import { BackHandler } from 'react-native';
 import R from 'res/R'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -98,6 +99,8 @@ handleBackButtonClick() {
           
         </View>
 
+        <ScrollView>
+
         <View style={styles.needALoanWrapper}>
    <Text style={styles.welcomeText}>Welcome {user.last_name}</Text>
           <Text style={styles.needALoanText}>Need a Loan ?</Text>
@@ -166,6 +169,7 @@ handleBackButtonClick() {
 
           </TouchableOpacity>
         </View>
+        </ScrollView>
 
       </View>
 

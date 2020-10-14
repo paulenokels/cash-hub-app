@@ -54,6 +54,7 @@ const MainStack = createStackNavigator();
       <MainStack.Screen name="EligibilityStatusScreen" component={EligibilityStatusScreen} options={{ headerShown: true, title: 'Apply for a Loan'}}/>
       <MainStack.Screen name="ManageDocumentsScreen" component={ManageDocumentsScreen} options={{ headerShown: false, title: 'Manage Documents'}}/>
       <MainStack.Screen name="UploadDocScreen" component={UploadDocScreen} options={{ headerShown: true, title: 'Upload Document'}}/>
+      <MainStack.Screen name="MyLoansScreen" component={MyLoansScreen} options={{ headerShown: false}}/>
     </MainStack.Navigator>
  )
 }

@@ -24,47 +24,47 @@ import SupportService from 'services/SupportService';
 import { RNToasty } from 'react-native-toasty'
 
 
- export default class ContactSupportScreen extends Component {
- 
+export default class ContactSupportScreen extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      
+
       loading: false,
-      email:'',
-      phoneNumber:'',
-      message:'',
+      email: '',
+      phoneNumber: '',
+      message: '',
       errors: {
-        email:'',
-        phoneNumber:'',
-        message:'',
+        email: '',
+        phoneNumber: '',
+        message: '',
       }
     }
-    
+
   }
 
   submit = async () => {
-    const { email, phoneNumber, message} = this.state;
-   
+    const { message } = this.state;
+
     const formValid = this.validateForm();
 
     if (formValid) {
-      this.setState({loading: true});
-      const req = await SupportService.newMessage(email, phoneNumber, message);
+      this.setState({ loading: true });
+      const req = await SupportService.sendMessage(message);
       const res = req.data;
 
+      //console.log(req);
+      if (typeof res == 'undefined') {
+        RNToasty.Error({ title: `Network Error. Check your internet connection and try again`, duration: RNToasty.Duration.Long });
 
-        if (typeof res == 'undefined') {
-         RNToasty.Error({ title: `Network Error. Check your internet connection and try again`, duration: RNToasty.Duration.Long });
-
-        }
-        else if (res.success) {
+      }
+      else if (res.success) {
         RNToasty.Success({ title: `Message sent successfully`, duration: RNToasty.Duration.Long });
         this.props.navigation.goBack(null);
 
-        }
+      }
 
-        this.setState({loading: false});
+      this.setState({ loading: false });
 
     }
 
@@ -72,32 +72,23 @@ import { RNToasty } from 'react-native-toasty'
 
   validateForm = () => {
     let formValid = true;
-  this.setState({errors: {}});
-  const { 
-    email,
-    phoneNumber,
-    message
-     } = this.state;
+    this.setState({ errors: {} });
+    const {
+     
+      message
+    } = this.state;
 
-  let errors = {};
-  if (email == '') {
-    errors.email ='Please enter your email address';
-    formValid = false;
-  }
+    let errors = {};
+  
+    if (message == '') {
+      errors.message = 'Please enter a message';
+      formValid = false;
+    }
 
-  if (phoneNumber == '') {
-    errors.phoneNumber ='Please enter your phone number';
-    formValid = false;
-  }
-  if (message == '') {
-    errors.message ='Please enter a message';
-    formValid = false;
-  }
+    this.setState({ errors });
 
-  this.setState({errors});
 
- 
-  return formValid;
+    return formValid;
 
   }
 
@@ -109,48 +100,48 @@ import { RNToasty } from 'react-native-toasty'
         <Loading text="submitting your message..." />
       )
     }
-   return (
-      
-           <View style={styles.container}>
-                <ScrollView style={{padding: 10}}>
-                    
+    return (
 
-            <TextField
-                  label={"Your Message"}
-                  error={errors.message}
-                  ref={this.inputRef}
-                  onChangeText={(message) => {
-                    this.setState({ message });
-                  }}
-                  value={message}
-                  multiline={true}
-                  keyboardType={"default"}
-                  {...R.pallete.textFieldStyle}
-                />
-                </ScrollView>
+      <View style={styles.container}>
+        <ScrollView style={{ padding: 10 }}>
 
-                <View style={styles.footerButtons}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
-                      <Text>Cancel</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.submit()}>
-                      <Text>Send</Text>
-                    </TouchableOpacity>
-                </View>
 
-            </View>
-       
-   )
+          <TextField
+            label={"Your Message"}
+            error={errors.message}
+            ref={this.inputRef}
+            onChangeText={(message) => {
+              this.setState({ message });
+            }}
+            value={message}
+            multiline={true}
+            keyboardType={"default"}
+            {...R.pallete.textFieldStyle}
+          />
+        </ScrollView>
+
+        <View style={styles.footerButtons}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+            <Text>Cancel</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.submit()}>
+            <Text>Send</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  
+
   container: {
     flex: 1,
   },
   footerButtons: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
     justifyContent: "space-around",
     padding: 20,
     borderTopColor: '#ccc',

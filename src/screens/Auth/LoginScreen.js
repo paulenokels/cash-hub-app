@@ -3,25 +3,21 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput,
-  TouchableHighlight,
   Image,
-  Alert,
   ScrollView,
 } from 'react-native';
 
 import R from 'res/R'
 import { TextField } from 'react-native-material-textfield';
 
-  import Button from 'apsl-react-native-button'
 
 
 import Loading from 'library/components/Loading'
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Ionicons  from 'react-native-vector-icons/Ionicons';
-import DeviceBackHandler from 'library/components/DeviceBackHandler';
 import AuthService from 'services/AuthService';
 import AsyncStorage from '@react-native-community/async-storage';
+import { BackHandler } from 'react-native';
+
 
 
  export default class LoginScreen extends Component {
@@ -32,89 +28,142 @@ import AsyncStorage from '@react-native-community/async-storage';
 
   constructor(props) {
     super(props);
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+
     this.state = {
       
       loading: false,
       email: null,
       password:null,
-      errors: {
-          emailError: '',
-          passwordError: '',
-      }
+      errors: {},
     }
     //this.params = this.props.navigation.getParam('params');
     //console.log(this.params);
   }
 
-  doSomething = async () => {
-   
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
 
   }
-
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+}
+handleBackButtonClick() {
+  if (this.props.navigation.isFocused()) {
+    BackHandler.exitApp();
+  }
+ 
+}
   handleLogin = async () => {
     console.log("logging in...");
+    if (!this.validateForm()) return;
+    this.setState({loading:true});
     const req = await AuthService.doLogin(this.state.email, this.state.password);
     const res = req.data;
     
-    console.log(req);
-    await AsyncStorage.setItem('@user', JSON.stringify(res.user));
+    console.log(res);
+    if (res.success) {
+
+      console.log("Logged in successfully");
+      await AsyncStorage.setItem('@user', JSON.stringify(res.user));
 
       this.props.navigation.navigate("HomeScreen");
+
+      
+    }
+    else {
+      const errors = {
+        invalidDetails : res.msg
+      }
+      this.setState({errors});
+
+    }
+    this.setState({loading: false});
+
   }
+
+  validateForm = () => {
+    let formValid = true;
+    const { email, password } = this.state;
+    let errors= {};
+    this.setState({errors});
+    if(!email) {
+      formValid = false;
+      errors.emailError = "Please input a valid email";
+
+    }
+    if (!password) {
+      formValid = false;
+      errors.passwordError = "Please enter your cash-HUB password";
+    }
+
+    this.setState({errors});
+
+    return formValid;
+  }
+
 
   handleRegister = async () => {
       this.props.navigation.navigate("RegisterScreen");
   }
 
   renderForm() {
+    const { email, password, errors } = this.state;
      
       return (
           <View style={styles.formContainer}>
               <TextField
                   label='Email'
-                  error={this.state.errors.emailError}
+                  error={errors.emailError}
                   ref={this.emailRef}
                   onChangeText={(email) => {
                       this.setState({ email });
                   }}
-                  
+                  value={email}
                  {...R.pallete.textFieldStyle}
               />
 
               <TextField
                   label='Password'
-                  error={this.state.errors.passwordError}
+                  error={errors.passwordError}
                   ref={this.passwordRef}
                   secureTextEntry={true}
                   onChangeText={(password) => {
                       this.setState({ password });
                   }}
+                  value={password}
                  {...R.pallete.textFieldStyle}
 
               />
               <TouchableOpacity onPress={this.handleRegister} style={{marginTop: 18, marginBottom: 18}}>
                   <Text style={{fontFamily: 'Segoe-UI'}}>Dont have an account ? Register</Text>
               </TouchableOpacity>
-              <View>
-                  <Button onPress={() => this.handleLogin()}>Login</Button>
-              </View>
+              <TouchableOpacity style={R.pallete.proceedBtn} onPress={() => this.handleLogin()}>
+                  <Text style={R.pallete.proceedBtnText}>Log in</Text>
+              </TouchableOpacity>
           </View>
       )
   }
 
   render() {
+    const { loading,errors } = this.state;
+    if (loading) {
+      return  <Loading text="Loggin you in..." />
+    }
    return (
       
            <View style={styles.container}>
-        {/* <DeviceBackHandler {...this.props} /> */}
+       
 
                  <View style={styles.headerContainer}>
-                       <Image style={styles.headerLogo} source={R.images.airbnb} />
+                       <Image style={styles.headerLogo} source={R.images.logo_sm} />
                    </View>
                 <ScrollView>
                  
                 <View style={styles.subheadingContainer}>
                     <Text style={R.pallete.formTitle}>CASH-HUB LOGIN</Text>
+
+                {errors.invalidDetails && <Text style={R.pallete.errorText}>{errors.invalidDetails}</Text>}
                 </View>
 
 
@@ -142,8 +191,8 @@ const styles = StyleSheet.create({
 
   },
   headerLogo: {
-    width: 40,
-    height: 40,
+    width: 80,
+    height: 80,
     alignSelf: 'center',
   },
   

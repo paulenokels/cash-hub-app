@@ -178,7 +178,7 @@ export default class PersonalInfoForm extends Component {
     }
 
     render() {
-        const { errors, date, state, citiesInState, loading } = this.state;
+        const { lastName, firstName, otherName, email, phoneNumber, dateOfBirth, address, password, errors, date, state, citiesInState, loading } = this.state;
 
         if (loading) {
             return <Loading text="Verifying personal information, please wait..." />
@@ -195,7 +195,7 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(lastName) => {
                       this.setState({ lastName });
                   }}
-                  
+                  value={lastName}
                  {...R.pallete.textFieldStyle}
               />
 
@@ -207,7 +207,7 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(firstName) => {
                       this.setState({ firstName });
                   }}
-                  
+                  value={firstName}
                  {...R.pallete.textFieldStyle}
               />
 
@@ -219,7 +219,7 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(otherName) => {
                       this.setState({ otherName });
                   }}
-                  
+                  value={otherName}
                  {...R.pallete.textFieldStyle}
               />
 
@@ -231,7 +231,7 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(email) => {
                       this.setState({ email });
                   }}
-                  
+                  value={email}
                  {...R.pallete.textFieldStyle}
               />
               <TextField
@@ -242,7 +242,7 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(phoneNumber) => {
                       this.setState({ phoneNumber });
                   }}
-                  
+                  value={phoneNumber}
                  {...R.pallete.textFieldStyle}
               />
                
@@ -299,11 +299,12 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(address) => {
                       this.setState({ address });
                   }}
-                  
+                  value={address}
                  {...R.pallete.textFieldStyle}
               />
 
               <Text style={R.pallete.formSubTitle}>Account Security</Text>
+              <Text>Create a password to secure your account.</Text>
               <TextField
                   label='Password'
                   error={errors.passwordError}
@@ -313,7 +314,7 @@ export default class PersonalInfoForm extends Component {
                   onChangeText={(password) => {
                       this.setState({ password });
                   }}
-                  
+                  value={password}
                  {...R.pallete.textFieldStyle}
               />
               </ScrollView>

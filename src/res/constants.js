@@ -1,8 +1,12 @@
 
 const DEV = true;
-  var FILE_SERVER = "";
+  var FILE_SERVER = "https://api.cash-hub.com.ng/";
+ let baseURL = 'https://api.cash-hub.com.ng/api';
+
   if (DEV) {
     FILE_SERVER ="http://192.168.43.232:8000/";
+    baseURL = 'http://192.168.43.232:8000/api';
+
   }
  
 const constants = {
@@ -15,7 +19,7 @@ const constants = {
       paystackLivePublicKey: 'pk_live_9bc0f086701f8b8ac421c052d891b31442a969d2'
     },
     secondaryGreen: '#3E9545',
-    BASE_URL: 'http://192.168.43.232:8000/api',
+    BASE_URL: baseURL,
     DEV: DEV
 
 }

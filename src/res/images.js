@@ -15,6 +15,7 @@ const images = {
   "selfie": require('./images/selfie.png'),
   "success": require('./images/success.png'),
   "wallet": require('./images/wallet.png'),
+  "logo_sm": require('./images/cash_hub_logo_sm.png'),
 
 
 }
