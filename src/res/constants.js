@@ -1,5 +1,5 @@
 
-const DEV = false;
+const DEV = true;
   var FILE_SERVER = "https://api.cash-hub.com.ng/";
  let baseURL = 'https://api.cash-hub.com.ng/api';
 
