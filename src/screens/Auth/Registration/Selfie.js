@@ -23,6 +23,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import AuthService from 'services/AuthService';
 import BaseService from 'services/BaseService';
 import Loading from 'library/components/Loading'
+import Cam from 'library/components/Cam'
   
 
 export default class Selfie extends Component {
@@ -32,6 +33,7 @@ export default class Selfie extends Component {
         this.state = {
             selfie: R.images.selfie,
             loading: false,
+            showCam: false,
             errors: {
                 
             }
@@ -65,7 +67,7 @@ export default class Selfie extends Component {
         //console.log(req);
         const res = req.data;
 
-        console.log(res);
+        //console.log(res);
 
        
 
@@ -101,40 +103,59 @@ export default class Selfie extends Component {
        
     };
 
-    openCamera = () => {
-        console.log("Open camera tapped")
-        ImagePicker.launchCamera({quality: 0.5, noData: true,}, (response) => {
-            // Same code as in above section!
-             // console.log('Response = ', response);
+    // openCamera = () => {
+    //     console.log("Open camera tapped")
+    //     ImagePicker.launchCamera({quality: 0.5, noData: true,}, (response) => {
+    //         // Same code as in above section!
+    //          // console.log('Response = ', response);
 
-             if (response.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
-            } else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton);
-            } else {
-                const source = { uri: response.uri, width: response.width, height: response.height, type: response.type, fileSize: response.fileSize, path: response.path };
+    //          if (response.didCancel) {
+    //             console.log('User cancelled image picker');
+    //         } else if (response.error) {
+    //             console.log('ImagePicker Error: ', response.error);
+    //         } else if (response.customButton) {
+    //             console.log('User tapped custom button: ', response.customButton);
+    //         } else {
+    //             const source = { uri: response.uri, width: response.width, height: response.height, type: response.type, fileSize: response.fileSize, path: response.path };
 
-                // You can also display the image using data:
-               // const source = response.uri;
+    //             // You can also display the image using data:
+    //            // const source = response.uri;
 
-                //console.log(response);
+    //             //console.log(response);
 
-                this.setState({
-                    selfie: source,
-                });
-            }
-          });
+    //             this.setState({
+    //                 selfie: source,
+    //             });
+    //         }
+    //       });
       
+    // }
+
+
+    onCameraCapture = async () => {
+        let selfie = await AsyncStorage.getItem('@selfie');
+        selfie = JSON.parse(selfie);
+        await this.setState({selfie, showCam: false});
+        
+    }
+
+    onCameraCancel = () => {
+        this.setState({showCam:false});
     }
 
 
 
     render() {
-        const { errors,selfie, loading } = this.state;
+        const { errors,selfie, loading, showCam } = this.state;
+
         if (loading) return <Loading text="Registering, please wait..." />
-        return(
+
+        else if (showCam) {
+            return (
+            <Cam type="front" onCancel={() => this.onCameraCancel()} onCameraCapture={() => this.onCameraCapture()} />
+            )
+        } 
+        else return(  
             <>
                 <ScrollView style={styles.container}>
                 <Text style={[R.pallete.formTitle, styles.header]}>TAKE SELFIE</Text>
@@ -145,7 +166,7 @@ export default class Selfie extends Component {
                 <TouchableOpacity
                             style={styles.openCamera}
                             activeOpacity={.5}
-                            onPress={this.openCamera}
+                            onPress={() => this.setState({showCam:true})}
                         >
 
                             <Text style={styles.textStyle}> Open Camera </Text>

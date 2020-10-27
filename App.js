@@ -22,6 +22,7 @@ import BankTransferScreen from 'screens/BankTransfer/BankTransferScreen';
 import EditProfileScreen from 'screens/EditProfile/EditProfileScreen';
 import HelpScreen from 'screens/Help/HelpScreen';
 import ContactSupportScreen from 'screens/Help/ContactSupportScreen';
+import IntroScreen from 'screens/IntroScreen';
 import PayScreen from 'screens/PayScreen';
 
 
@@ -55,6 +56,8 @@ const MainStack = createStackNavigator();
       <MainStack.Screen name="ManageDocumentsScreen" component={ManageDocumentsScreen} options={{ headerShown: false, title: 'Manage Documents'}}/>
       <MainStack.Screen name="UploadDocScreen" component={UploadDocScreen} options={{ headerShown: true, title: 'Upload Document'}}/>
       <MainStack.Screen name="MyLoansScreen" component={MyLoansScreen} options={{ headerShown: false}}/>
+      <LoanStack.Screen name="LoanInfoScreen" component={LoanInfoScreen}  options={{ headerShown: true, title: 'Loan Information'}}/>
+
     </MainStack.Navigator>
  )
 }
@@ -160,6 +163,7 @@ function App() {
     <NavigationContainer>
       <AppStack.Navigator>
         <AppStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false}} />
+        <AppStack.Screen name="Intro" component={IntroScreen} options={{headerShown: false}} />
         <AppStack.Screen name="LoginScreen" component={LoginScreen} options={{headerShown: true, title: 'Cash-HUB Login'}} />
         <AppStack.Screen name="RegisterScreen" component={RegisterScreen} options={{headerShown: true, title: 'Cash-HUB Registration'}} />
         <AppStack.Screen name="HomeScreen" component={MainDrawer} options={{headerShown: false}} />

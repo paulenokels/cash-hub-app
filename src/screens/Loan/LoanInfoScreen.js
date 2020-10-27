@@ -64,7 +64,7 @@ class LoanInfoScreen extends Component {
             <View style={styles.levelDocument}>
             
             <Text style={styles.approvedText}>{loan.status}</Text>
-            <Text style={styles.approvedText}>Due date {loan.payback_date}</Text>
+        { loan.status == 'APPROVED' && <Text style={styles.approvedText}>Due date {loan.payback_date}</Text> }
               
               </View>
          

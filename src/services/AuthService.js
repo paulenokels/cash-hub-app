@@ -47,10 +47,11 @@ class AuthService extends BaseService{
         formData.append('selfie', {
             uri: newUserObj.photo.uri,
             name: 'image',
-            type: newUserObj.photo.type,
+            //type: newUserObj.photo.type,
+            type: 'image/jpeg',
             width: newUserObj.photo.width,
             height: newUserObj.photo.height,
-            size: newUserObj.photo.fileSize,
+            //size: newUserObj.photo.fileSize,
             
         });
 

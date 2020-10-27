@@ -82,7 +82,8 @@ class MyLoansScreen extends Component {
             <TouchableOpacity style={styles.loanWrapper} index={index} onPress={() => this.props.navigation.navigate('LoanInfoScreen', {loan})}>
                 <View style={{ flexDirection: "row" }}>
                     <View style={{padding: 2}}>
-                        <Image source={R.images.wallet} style={{height: 45, width: 45, marginRight: 10}} />
+                  <Icon onPress={() => { }} name="wallet" size={45} style={{ paddingStart: 6, marginTop: 2 }} color="green" />
+
                     </View>
                     <View>
                         <Text style={styles.amount}>{formatCurrency(loan.amount)}</Text>
@@ -92,7 +93,7 @@ class MyLoansScreen extends Component {
                 </View>
 
                 <View>
-                    <Text>Due Date: {loan.payback_date}</Text>
+                    <Text>Due Date: {moment(loan.payback_date).format("MMM Do YYYY")}</Text>
                     { approvedAndPaidBack == false &&  
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('LoanInfoScreen', {loan})}>
                         <Text style={styles.payNowText}>Payback Now</Text>

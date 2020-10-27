@@ -122,8 +122,8 @@ import LoanService from 'services/LoanService';
 
                     <PaystackWebView
                       buttonText='Pay Now'
-                      paystackKey={R.constants.paymentKeys.paystackTestPublicKey}
-                      paystackSecretKey={R.constants.paymentKeys.paystackTestSecretKey}
+                      paystackKey={R.constants.paymentKeys.paystackLivePublicKey}
+                      paystackSecretKey={R.constants.paymentKeys.paystackLiveSecretKey}
                       amount={loan.payback_amount}
                       billingEmail={user.email}
                       billingMobile={user.phone}

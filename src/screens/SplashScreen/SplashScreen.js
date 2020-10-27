@@ -16,6 +16,9 @@ export default class SplashScreen extends Component {
     };
 
 
+   
+
+
 
   }
 
@@ -23,7 +26,11 @@ export default class SplashScreen extends Component {
 
     setTimeout(async () => {
       const user = await AsyncStorage.getItem("@user");
-      if (user === null) {
+      const intro = await AsyncStorage.getItem('@introShown');
+      if (!intro) {
+        this.props.navigation.navigate('Intro');
+      }
+      else if (user === null) {
          this.props.navigation.navigate("LoginScreen");
       }
       else this.props.navigation.navigate("HomeScreen");

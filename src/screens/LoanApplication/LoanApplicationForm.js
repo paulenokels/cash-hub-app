@@ -111,7 +111,7 @@ class LoanApplicationForm extends Component {
     }
 
     if (showAddCreditCardScreen) {
-      return <AddCreditCardScreen amount={amount} paybackDate={paybackDate} />
+      return <AddCreditCardScreen navigation={this.props.navigation} amount={amount} paybackDate={paybackDate} />
     }
 
    

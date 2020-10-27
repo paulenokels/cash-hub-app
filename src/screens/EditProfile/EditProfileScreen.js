@@ -431,7 +431,7 @@ export default class EditProfileScreen extends Component {
                 {this.renderProfileItem("Location", `${user.city}, ${user.state}`, "map-marker", 2)}
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.setState({ inputTitle: "Address", column: 'address', inputValue: user.address, showInputModal: true })}>
-                {this.renderProfileItem("Address", user.address, "map-pin", 2)}
+                {this.renderProfileItem("Address", user.address, "home", 2)}
               </TouchableOpacity>
             </View>
 
