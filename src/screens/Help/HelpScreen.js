@@ -8,13 +8,11 @@ import {
   ScrollView,
 } from 'react-native';
 
-import AsyncStorage from '@react-native-community/async-storage';
 import R from 'res/R'
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
-import Loading from 'library/components/Loading'
 
 
  export default class HelpScreen extends Component {
@@ -49,7 +47,7 @@ import Loading from 'library/components/Loading'
  
 
   render() {
-    const contactPhone = '2347061097270';
+    const contactPhone = '2347061097224';
    return (
       
            <View style={styles.container}>
@@ -87,15 +85,7 @@ import Loading from 'library/components/Loading'
                   </TouchableOpacity>
 
 
-                    <TouchableOpacity style={styles.section}>
-                      <View style={styles.sectionItem}>
-                        <View>
-                           <Text>Terms and Conditions</Text>
-                           <Text style={styles.hint}>Opens our terms and conditions page</Text>
-                        </View>
-                        <Icon name={'chevron-right'} size={18} color={'seagreen'} style={styles.icon} />
-                      </View>
-                    </TouchableOpacity>
+                 
                     
 
                     <TouchableOpacity style={styles.section} onPress ={() => this.props.navigation.navigate('ContactSupportScreen')}>
@@ -108,7 +98,7 @@ import Loading from 'library/components/Loading'
                       </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.section}>
+                    <TouchableOpacity style={styles.section} onPress={() => Linking.openURL(`https://cash-hub.com.ng/privacy-policy`)}>
                       <View style={styles.sectionItem}>
                         <View>
                            <Text>Privacy Policy</Text>
@@ -119,7 +109,7 @@ import Loading from 'library/components/Loading'
                     </TouchableOpacity>
 
 
-                    <TouchableOpacity style={styles.section}>
+                    <TouchableOpacity style={styles.section}  onPress={() => Linking.openURL(`https://cash-hub.com.ng/terms`)}>
                       <View style={styles.sectionItem}>
                         <View>
                            <Text>Terms and Conditions</Text>

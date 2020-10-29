@@ -12,6 +12,7 @@ import SplashScreen from 'src/screens/SplashScreen/SplashScreen'
 import HomeScreen from 'src/screens/HomeScreen/HomeScreen'
 import LoginScreen from 'screens/Auth/LoginScreen';
 import RegisterScreen from 'screens/Auth/Registration/RegisterScreen';
+import ForgotPasswordScreen from 'screens/Auth/ForgotPassword/ForgotPasswordScreen';
 import EligibilityStatusScreen from 'screens/LoanApplication/EligibilityStatusScreen';
 import ManageDocumentsScreen from 'screens/ManageDocuments/ManageDocumentsScreen';
 import UploadDocScreen from 'screens/UploadDoc/UploadDocScreen';
@@ -166,6 +167,7 @@ function App() {
         <AppStack.Screen name="Intro" component={IntroScreen} options={{headerShown: false}} />
         <AppStack.Screen name="LoginScreen" component={LoginScreen} options={{headerShown: true, title: 'Cash-HUB Login'}} />
         <AppStack.Screen name="RegisterScreen" component={RegisterScreen} options={{headerShown: true, title: 'Cash-HUB Registration'}} />
+        <AppStack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} options={{headerShown: true, title: 'Reset Password'}} />
         <AppStack.Screen name="HomeScreen" component={MainDrawer} options={{headerShown: false}} />
       </AppStack.Navigator>
     </NavigationContainer>

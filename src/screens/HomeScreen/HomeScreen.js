@@ -86,7 +86,10 @@ handleBackButtonClick() {
    if (user) return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Icon onPress={() => this.props.navigation.toggleDrawer()} name="bars" size={25} style={styles.menuIcon} color="#fff" />
+          <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
+            <Icon  name="bars" size={25} style={styles.menuIcon} color="#fff" />
+            <Text style={{color: '#fff', marginTop: 4, marginLeft:-4, fontSize: 12}}>MENU</Text>
+          </TouchableOpacity>
 
           <Text style={styles.headerText} >cash-HUB</Text>
           <Image source={{uri: R.constants.FILE_SERVER+user.photo}} style={[R.pallete.avatar, { width: 30, height: 30 }]} />

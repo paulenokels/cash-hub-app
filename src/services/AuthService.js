@@ -85,6 +85,37 @@ class AuthService extends BaseService{
         }
     }
 
+    async sendPasswordResetCode(email) {
+        const data = {
+            email: email,
+        }
+          
+        try {
+           return await axios.post('user/password/reset/init', data);
+        }
+        catch (err) {
+            return err;
+
+        }
+    }
+
+
+    async resetPassword(email, password, resetCode) {
+        const data = {
+            email: email,
+            password: password,
+            reset_code: resetCode
+        }
+          
+        try {
+           return await axios.post('user/password/reset', data);
+        }
+        catch (err) {
+            return err;
+
+        }
+    }
+
     
 
     

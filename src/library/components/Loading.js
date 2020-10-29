@@ -20,7 +20,7 @@ export default class Loading extends React.Component {
         return (
             <View style={styles.container}>
                
-                    <ActivityIndicator />
+                    <ActivityIndicator size="large" color="#0000ff" />
                     <Text>{this.props.text}</Text>
                 </View>
         )

@@ -135,12 +135,18 @@ handleBackButtonClick() {
                  {...R.pallete.textFieldStyle}
 
               />
-              <TouchableOpacity onPress={this.handleRegister} style={{marginTop: 18, marginBottom: 18}}>
-                  <Text style={{fontFamily: 'Segoe-UI'}}>Dont have an account ? Register</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={R.pallete.proceedBtn} onPress={() => this.handleLogin()}>
+               <TouchableOpacity style={R.pallete.proceedBtn} onPress={() => this.handleLogin()}>
                   <Text style={R.pallete.proceedBtnText}>Log in</Text>
               </TouchableOpacity>
+              <View style={{flexDirection:"row", justifyContent:"space-around", marginTop: 18, marginBottom: 18}}>
+                <TouchableOpacity onPress={this.handleRegister}>
+                    <Text style={{fontFamily: 'Segoe-UI'}}>Register</Text>
+                </TouchableOpacity> 
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPasswordScreen')}>
+                    <Text style={{fontFamily: 'Segoe-UI'}}> Forgot Password </Text>
+                </TouchableOpacity>
+              </View>
+             
           </View>
       )
   }

@@ -82,7 +82,14 @@ class EligibilityStatusScreen extends Component {
           return (
             <View style={styles.levelDocument}>
               <Text>{levelDocument.name}</Text>
-              {levelDocument.uploaded == false && <Text style={styles.errorText}>NOT UPLOADED</Text>}
+              {levelDocument.uploaded == false && 
+              <View>
+                <Text style={styles.errorText}>NOT UPLOADED</Text>
+                <TouchableOpacity style={styles.uploadDocBtn} onPress={() => this.props.navigation.navigate('UploadDocScreen')}>
+                  <Text style={styles.uploadText}>Upload Document</Text>
+                </TouchableOpacity>
+              </View>
+              }
               {levelDocument.approved == false && <Text style={styles.errorText}>PENDING APPROVAL</Text>}
               {levelDocument.approved == true && <Text style={styles.approvedText}>APPROVED</Text>}
               
@@ -100,9 +107,6 @@ class EligibilityStatusScreen extends Component {
           :
           <View>
             <Text style={styles.checkFail}>Eligibility check FAILED. {report.reason}</Text>
-            {/* <TouchableOpacity style={styles.uploadDocBtn} onPress={() => this.props.navigation.navigate('UploadDocumentsScreen')}>
-              <Text style={styles.uploadText}>Upload Document(s)</Text>
-            </TouchableOpacity> */}
           </View>
           
           }

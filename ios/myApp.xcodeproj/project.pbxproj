@@ -7,35 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* CashHUBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CashHUBTests.m */; };
+		00E356F31AD99517003FC87E /* myAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* CashHUBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CashHUBTests.m */; };
-		2B1C704FA05C4449B9C830F0 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE3DD1A84EDA4744A87538D7 /* AntDesign.ttf */; };
-		7D572D5D071746B9B60AF547 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6906863F44284A5DBF8306E6 /* Entypo.ttf */; };
-		F957B4605B06431CB53CF580 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB2338A4995044F1935FF781 /* EvilIcons.ttf */; };
-		C5B3EECDFF654552A44FD4BE /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F967DF59A844FEBC87F9AF /* Feather.ttf */; };
-		082CCAAC39424B1A92F697C6 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5F4AF233354401189FF12EC /* FontAwesome.ttf */; };
-		476AA48505554F39BA5DB63B /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AAE3CAF0B4D40F39124692E /* FontAwesome5_Brands.ttf */; };
-		75635D0140B84ECE8DAEA35C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA0FCC23F61A4F4297FB863B /* FontAwesome5_Regular.ttf */; };
-		7887E2E3677A40558B510DA8 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9562F62F8E2A479EA4492BDB /* FontAwesome5_Solid.ttf */; };
-		B2E92F1C015B4AF581907DF3 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C583A608B16480EAE508D20 /* Fontisto.ttf */; };
-		73D7C524882F4BAC9ECF71B8 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68809F10F7CD43808C501FCE /* Foundation.ttf */; };
-		E23D6104FC8C448E8B0DB029 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D9F683BCF1044D0AF25C033 /* Ionicons.ttf */; };
-		D9E3765686F24C4099F2172C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAE2AEF92B344544B698D1B1 /* MaterialCommunityIcons.ttf */; };
-		B1CB9FFE5F944F20AA7388F0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 849D8F2E2BA048FABD5504BB /* MaterialIcons.ttf */; };
-		DDCA31B2A36547BEAAFF8EF6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFD9CE060C1F469BBC95C8BE /* Octicons.ttf */; };
-		2199862747BE45AAAA39CE6F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D64C594C32BF4ED2843E1DA5 /* SimpleLineIcons.ttf */; };
-		085ADDF2AA414C3BAC291D2B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 026E03A5EE0B4BE39D37DA4C /* Zocial.ttf */; };
-		1F72FC672F4A4B70874EF8DA /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3555BD2F589C468C8AAAAB2C /* Segoe UI Bold Italic.ttf */; };
-		5530E4D53BA04564B285292E /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A15A2BC307C4492BBCC1189 /* Segoe UI Bold.ttf */; };
-		A8B791B09C8C4767A867D2AF /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8944E76614F406DA1BED350 /* Segoe UI Italic.ttf */; };
-		A1292D8742884F558C56ACD7 /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB587D52179A432183874227 /* Segoe UI.ttf */; };
+		2DCD954D1E0B4F2C00145EB5 /* myAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myAppTests.m */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		7E44B43151B54DBD932339AF /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B91A11FC8A348AD883A1933 /* AntDesign.ttf */; };
+		E1C7E47F583948EDAFF4DD77 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 416FC0D9510C401B9C92F895 /* Entypo.ttf */; };
+		7C9A27EADC0E432097DC7C4C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DACAC73F45BA42EAAE347730 /* EvilIcons.ttf */; };
+		0A2B22EF08BA4538B3CD862B /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C594F1D65DD4411D814FFBC6 /* Feather.ttf */; };
+		9BE12700185C4BF2A85727BE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B42F3F631A7241FEA92F29EF /* FontAwesome.ttf */; };
+		E716C5E2ED6C47E2B44E0755 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE960B586F2847E0949DC371 /* FontAwesome5_Brands.ttf */; };
+		3EC8266EC78A4548A14858E1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1CFC10444645F8BDCEDDBA /* FontAwesome5_Regular.ttf */; };
+		5A8AE08FB0DA44B6BF079FCC /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C86D73AD184AE5856301E8 /* FontAwesome5_Solid.ttf */; };
+		498ED2B51B4043F885D5DFB4 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA4CC10F2198458D8F80BA4F /* Fontisto.ttf */; };
+		B395CB96EF0B49648F3242CE /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C41DA71082459F98198C58 /* Foundation.ttf */; };
+		4CD915B059954BF7A5970F4A /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA342BD3FDFC45919B320C7A /* Ionicons.ttf */; };
+		F970CB715A8546B7B0B67407 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4E55EBDE16D431888285669 /* MaterialCommunityIcons.ttf */; };
+		6CB0E125BDF14E0AB05A4CD1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33C9C25095E54F7E92540DAA /* MaterialIcons.ttf */; };
+		DA4B8A4C5DF347A58279C8A6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E99C7D752384482861B9038 /* Octicons.ttf */; };
+		952CA292A50047D79A0ADE12 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C735E77D113495CAE77E4A6 /* SimpleLineIcons.ttf */; };
+		40F2DDC350D342A99B6AD265 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DE33D599D1F43F7B6397A56 /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,53 +40,49 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = CashHUB;
+			remoteInfo = cashHUB;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "CashHUB-tvOS";
+			remoteInfo = "myApp-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* CashHUBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CashHUBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* myAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* CashHUBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashHUBTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* CashHUB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashHUB.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CashHUB/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CashHUB/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CashHUB/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CashHUB/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CashHUB/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* CashHUB-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CashHUB-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* CashHUB-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CashHUB-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* myAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAppTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* myApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = myApp/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = myApp/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = myApp/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = myApp/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = myApp/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* myApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "myApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* myApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "myApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = myApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EE3DD1A84EDA4744A87538D7 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6906863F44284A5DBF8306E6 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		EB2338A4995044F1935FF781 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		81F967DF59A844FEBC87F9AF /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B5F4AF233354401189FF12EC /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1AAE3CAF0B4D40F39124692E /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BA0FCC23F61A4F4297FB863B /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9562F62F8E2A479EA4492BDB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3C583A608B16480EAE508D20 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		68809F10F7CD43808C501FCE /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7D9F683BCF1044D0AF25C033 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DAE2AEF92B344544B698D1B1 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		849D8F2E2BA048FABD5504BB /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AFD9CE060C1F469BBC95C8BE /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D64C594C32BF4ED2843E1DA5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		026E03A5EE0B4BE39D37DA4C /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3555BD2F589C468C8AAAAB2C /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; name = "Segoe UI Bold Italic.ttf"; path = "../assets/fonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6A15A2BC307C4492BBCC1189 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; name = "Segoe UI Bold.ttf"; path = "../assets/fonts/Segoe UI Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C8944E76614F406DA1BED350 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; name = "Segoe UI Italic.ttf"; path = "../assets/fonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BB587D52179A432183874227 /* Segoe UI.ttf */ = {isa = PBXFileReference; name = "Segoe UI.ttf"; path = "../assets/fonts/Segoe UI.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7B91A11FC8A348AD883A1933 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		416FC0D9510C401B9C92F895 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DACAC73F45BA42EAAE347730 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C594F1D65DD4411D814FFBC6 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B42F3F631A7241FEA92F29EF /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EE960B586F2847E0949DC371 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7E1CFC10444645F8BDCEDDBA /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		36C86D73AD184AE5856301E8 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EA4CC10F2198458D8F80BA4F /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		82C41DA71082459F98198C58 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BA342BD3FDFC45919B320C7A /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C4E55EBDE16D431888285669 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		33C9C25095E54F7E92540DAA /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4E99C7D752384482861B9038 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6C735E77D113495CAE77E4A6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4DE33D599D1F43F7B6397A56 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,13 +117,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* CashHUBTests */ = {
+		00E356EF1AD99517003FC87E /* myAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* CashHUBTests.m */,
+				00E356F21AD99517003FC87E /* myAppTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = CashHUBTests;
+			path = myAppTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -142,7 +134,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* CashHUB */ = {
+		13B07FAE1A68108700A75B9A /* myApp */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -150,10 +142,10 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = CashHUB;
+			name = myApp;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -175,12 +167,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* CashHUB */,
+				13B07FAE1A68108700A75B9A /* myApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* CashHUBTests */,
+				00E356EF1AD99517003FC87E /* myAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				EE4624BB33CA48EFB5E24B49 /* Resources */,
+				C724BD9AC36B4EFE825DEE7E /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -190,37 +182,33 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* CashHUB.app */,
-				00E356EE1AD99517003FC87E /* CashHUBTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* CashHUB-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* CashHUB-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* myApp.app */,
+				00E356EE1AD99517003FC87E /* myAppTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* myApp-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* myApp-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE4624BB33CA48EFB5E24B49 /* Resources */ = {
+		C724BD9AC36B4EFE825DEE7E /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				EE3DD1A84EDA4744A87538D7 /* AntDesign.ttf */,
-				6906863F44284A5DBF8306E6 /* Entypo.ttf */,
-				EB2338A4995044F1935FF781 /* EvilIcons.ttf */,
-				81F967DF59A844FEBC87F9AF /* Feather.ttf */,
-				B5F4AF233354401189FF12EC /* FontAwesome.ttf */,
-				1AAE3CAF0B4D40F39124692E /* FontAwesome5_Brands.ttf */,
-				BA0FCC23F61A4F4297FB863B /* FontAwesome5_Regular.ttf */,
-				9562F62F8E2A479EA4492BDB /* FontAwesome5_Solid.ttf */,
-				3C583A608B16480EAE508D20 /* Fontisto.ttf */,
-				68809F10F7CD43808C501FCE /* Foundation.ttf */,
-				7D9F683BCF1044D0AF25C033 /* Ionicons.ttf */,
-				DAE2AEF92B344544B698D1B1 /* MaterialCommunityIcons.ttf */,
-				849D8F2E2BA048FABD5504BB /* MaterialIcons.ttf */,
-				AFD9CE060C1F469BBC95C8BE /* Octicons.ttf */,
-				D64C594C32BF4ED2843E1DA5 /* SimpleLineIcons.ttf */,
-				026E03A5EE0B4BE39D37DA4C /* Zocial.ttf */,
-				3555BD2F589C468C8AAAAB2C /* Segoe UI Bold Italic.ttf */,
-				6A15A2BC307C4492BBCC1189 /* Segoe UI Bold.ttf */,
-				C8944E76614F406DA1BED350 /* Segoe UI Italic.ttf */,
-				BB587D52179A432183874227 /* Segoe UI.ttf */,
+				7B91A11FC8A348AD883A1933 /* AntDesign.ttf */,
+				416FC0D9510C401B9C92F895 /* Entypo.ttf */,
+				DACAC73F45BA42EAAE347730 /* EvilIcons.ttf */,
+				C594F1D65DD4411D814FFBC6 /* Feather.ttf */,
+				B42F3F631A7241FEA92F29EF /* FontAwesome.ttf */,
+				EE960B586F2847E0949DC371 /* FontAwesome5_Brands.ttf */,
+				7E1CFC10444645F8BDCEDDBA /* FontAwesome5_Regular.ttf */,
+				36C86D73AD184AE5856301E8 /* FontAwesome5_Solid.ttf */,
+				EA4CC10F2198458D8F80BA4F /* Fontisto.ttf */,
+				82C41DA71082459F98198C58 /* Foundation.ttf */,
+				BA342BD3FDFC45919B320C7A /* Ionicons.ttf */,
+				C4E55EBDE16D431888285669 /* MaterialCommunityIcons.ttf */,
+				33C9C25095E54F7E92540DAA /* MaterialIcons.ttf */,
+				4E99C7D752384482861B9038 /* Octicons.ttf */,
+				6C735E77D113495CAE77E4A6 /* SimpleLineIcons.ttf */,
+				4DE33D599D1F43F7B6397A56 /* Zocial.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -229,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* CashHUBTests */ = {
+		00E356ED1AD99517003FC87E /* myAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CashHUBTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "myAppTests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -242,14 +230,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = CashHUBTests;
-			productName = CashHUBTests;
-			productReference = 00E356EE1AD99517003FC87E /* CashHUBTests.xctest */;
+			name = myAppTests;
+			productName = myAppTests;
+			productReference = 00E356EE1AD99517003FC87E /* myAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* CashHUB */ = {
+		13B07F861A680F5B00A75B9A /* myApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CashHUB" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "myApp" */;
 			buildPhases = (
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -261,14 +249,14 @@
 			);
 			dependencies = (
 			);
-			name = CashHUB;
-			productName = "CashHUB";
-			productReference = 13B07F961A680F5B00A75B9A /* CashHUB.app */;
+			name = myApp;
+			productName = myApp;
+			productReference = 13B07F961A680F5B00A75B9A /* myApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* CashHUB-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* myApp-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "CashHUB-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myApp-tvOS" */;
 			buildPhases = (
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
@@ -280,14 +268,14 @@
 			);
 			dependencies = (
 			);
-			name = "CashHUB-tvOS";
-			productName = "CashHUB-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* CashHUB-tvOS.app */;
+			name = "myApp-tvOS";
+			productName = "myApp-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* myApp-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* CashHUB-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* myApp-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "CashHUB-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myApp-tvOSTests" */;
 			buildPhases = (
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
@@ -298,9 +286,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "CashHUB-tvOSTests";
-			productName = "CashHUB-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* CashHUB-tvOSTests.xctest */;
+			name = "myApp-tvOSTests";
+			productName = "myApp-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* myApp-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -309,12 +297,14 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 940;
-				ORGANIZATIONNAME = Facebook;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -327,9 +317,9 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CashHUB" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "myApp" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -340,10 +330,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* CashHUB */,
-				00E356ED1AD99517003FC87E /* CashHUBTests */,
-				2D02E47A1E0B4A5D006451C7 /* CashHUB-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* CashHUB-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* myApp */,
+				00E356ED1AD99517003FC87E /* myAppTests */,
+				2D02E47A1E0B4A5D006451C7 /* myApp-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* myApp-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -360,28 +350,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				2B1C704FA05C4449B9C830F0 /* AntDesign.ttf in Resources */,
-				7D572D5D071746B9B60AF547 /* Entypo.ttf in Resources */,
-				F957B4605B06431CB53CF580 /* EvilIcons.ttf in Resources */,
-				C5B3EECDFF654552A44FD4BE /* Feather.ttf in Resources */,
-				082CCAAC39424B1A92F697C6 /* FontAwesome.ttf in Resources */,
-				476AA48505554F39BA5DB63B /* FontAwesome5_Brands.ttf in Resources */,
-				75635D0140B84ECE8DAEA35C /* FontAwesome5_Regular.ttf in Resources */,
-				7887E2E3677A40558B510DA8 /* FontAwesome5_Solid.ttf in Resources */,
-				B2E92F1C015B4AF581907DF3 /* Fontisto.ttf in Resources */,
-				73D7C524882F4BAC9ECF71B8 /* Foundation.ttf in Resources */,
-				E23D6104FC8C448E8B0DB029 /* Ionicons.ttf in Resources */,
-				D9E3765686F24C4099F2172C /* MaterialCommunityIcons.ttf in Resources */,
-				B1CB9FFE5F944F20AA7388F0 /* MaterialIcons.ttf in Resources */,
-				DDCA31B2A36547BEAAFF8EF6 /* Octicons.ttf in Resources */,
-				2199862747BE45AAAA39CE6F /* SimpleLineIcons.ttf in Resources */,
-				085ADDF2AA414C3BAC291D2B /* Zocial.ttf in Resources */,
-				1F72FC672F4A4B70874EF8DA /* Segoe UI Bold Italic.ttf in Resources */,
-				5530E4D53BA04564B285292E /* Segoe UI Bold.ttf in Resources */,
-				A8B791B09C8C4767A867D2AF /* Segoe UI Italic.ttf in Resources */,
-				A1292D8742884F558C56ACD7 /* Segoe UI.ttf in Resources */,
+				7E44B43151B54DBD932339AF /* AntDesign.ttf in Resources */,
+				E1C7E47F583948EDAFF4DD77 /* Entypo.ttf in Resources */,
+				7C9A27EADC0E432097DC7C4C /* EvilIcons.ttf in Resources */,
+				0A2B22EF08BA4538B3CD862B /* Feather.ttf in Resources */,
+				9BE12700185C4BF2A85727BE /* FontAwesome.ttf in Resources */,
+				E716C5E2ED6C47E2B44E0755 /* FontAwesome5_Brands.ttf in Resources */,
+				3EC8266EC78A4548A14858E1 /* FontAwesome5_Regular.ttf in Resources */,
+				5A8AE08FB0DA44B6BF079FCC /* FontAwesome5_Solid.ttf in Resources */,
+				498ED2B51B4043F885D5DFB4 /* Fontisto.ttf in Resources */,
+				B395CB96EF0B49648F3242CE /* Foundation.ttf in Resources */,
+				4CD915B059954BF7A5970F4A /* Ionicons.ttf in Resources */,
+				F970CB715A8546B7B0B67407 /* MaterialCommunityIcons.ttf in Resources */,
+				6CB0E125BDF14E0AB05A4CD1 /* MaterialIcons.ttf in Resources */,
+				DA4B8A4C5DF347A58279C8A6 /* Octicons.ttf in Resources */,
+				952CA292A50047D79A0ADE12 /* SimpleLineIcons.ttf in Resources */,
+				40F2DDC350D342A99B6AD265 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* CashHUBTests.m in Sources */,
+				00E356F31AD99517003FC87E /* myAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* CashHUBTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* myAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,27 +497,15 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* CashHUB */;
+			target = 13B07F861A680F5B00A75B9A /* myApp */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* CashHUB-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* myApp-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = CashHUB;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
@@ -542,8 +516,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CashHUBTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = myAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -552,7 +526,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CashHUB.app/CashHUB";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myApp.app/myApp";
 			};
 			name = Debug;
 		};
@@ -561,8 +535,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = CashHUBTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = myAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -571,7 +545,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CashHUB.app/CashHUB";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myApp.app/myApp";
 			};
 			name = Release;
 		};
@@ -579,9 +553,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
-				INFOPLIST_FILE = CashHUB/Info.plist;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -589,7 +564,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CashHUB;
+				PRODUCT_NAME = myApp;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -598,8 +575,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = CashHUB/Info.plist;
+				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -607,7 +585,8 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CashHUB;
+				PRODUCT_NAME = myApp;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -624,18 +603,18 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "CashHUB-tvOS/Info.plist";
+				INFOPLIST_FILE = "myApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CashHUB-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.myApp-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -651,18 +630,18 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "CashHUB-tvOS/Info.plist";
+				INFOPLIST_FILE = "myApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CashHUB-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.myApp-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -677,17 +656,17 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "CashHUB-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "myApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CashHUB-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.myApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CashHUB-tvOS.app/CashHUB-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myApp-tvOS.app/myApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
@@ -703,17 +682,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "CashHUB-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "myApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CashHUB-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.myApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CashHUB-tvOS.app/CashHUB-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myApp-tvOS.app/myApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -722,6 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -764,7 +744,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -775,6 +761,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -810,7 +797,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -820,7 +813,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CashHUBTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "myAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -829,7 +822,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CashHUB" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "myApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -838,7 +831,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "CashHUB-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myApp-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -847,7 +840,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "CashHUB-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myApp-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -856,7 +849,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CashHUB" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "myApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
