@@ -30,7 +30,7 @@ class LoanApplicationForm extends Component {
     this.state = {
         loading: false,
         amount:0,
-        paybackDate:moment(new Date()).format("YYYY-MM-DD"),
+        rawDate:new Date(),
         showAddCreditCardScreen: false,
         creditCards:[],
         errors : {
@@ -82,7 +82,7 @@ class LoanApplicationForm extends Component {
 
     
      if (parseFloat(amount) < 1000) {
-      errors.amountError = "Minimum loan amount is N1,000";
+      errors.amountError = "Minimum aloan amount is N1,000";
       formValid = false;
     }
 
@@ -104,7 +104,7 @@ class LoanApplicationForm extends Component {
 
  
   render() {
-    const { loading, errors, amount, paybackDate, showAddCreditCardScreen } = this.state;
+    const { loading, errors, amount, paybackDate, rawDate, showAddCreditCardScreen } = this.state;
     const { report } = this.props;
     if (loading) {
       return <Loading text="Submitting your request please wait..." />
@@ -137,16 +137,18 @@ class LoanApplicationForm extends Component {
           <Text style={{marginTop: 25,}}>Repayment date</Text>
               {errors.paybackDateError && <Text style={R.pallete.errorText}>{errors.paybackDateError}</Text>}
               <DatePicker
-                date={paybackDate}
-                onDateChange={(date_) => {
-                    const paybackDate = moment(date_).format("YYYY-MM-DD");
+                date={rawDate}
+                onDateChange={(rawDate) => {
+                    const paybackDate = moment(rawDate).format("YYYY-MM-DD");
                     console.log(paybackDate);
-                    this.setState({paybackDate});
+                    this.setState({rawDate, paybackDate});
                 }}
                 mode="date"
                 androidVariant="nativeAndroid"
                 style={{marginLeft: -55}}
                 />
+
+                
 
 
 

@@ -39,6 +39,7 @@ class AuthService extends BaseService{
         formData.append('user_type', newUserObj.type_id);
         formData.append('insitution_name', newUserObj.institution_name);
         formData.append('institution_state', newUserObj.institution_state);
+        formData.append('reg_number', newUserObj.reg_number);
         formData.append('bvn', newUserObj.bvn);
         formData.append('bank_accounts', JSON.stringify(newUserObj.bank_accounts));
         

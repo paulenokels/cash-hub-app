@@ -21,6 +21,7 @@ import LoanInfoScreen from 'screens/Loan/LoanInfoScreen';
 import LoanCodeScreen from 'screens/LoanApplication/LoanCodeScreen';
 import BankTransferScreen from 'screens/BankTransfer/BankTransferScreen';
 import EditProfileScreen from 'screens/EditProfile/EditProfileScreen';
+import AddRegNumberScreen from 'screens/EditProfile/AddRegNumber';
 import HelpScreen from 'screens/Help/HelpScreen';
 import ContactSupportScreen from 'screens/Help/ContactSupportScreen';
 import IntroScreen from 'screens/IntroScreen';
@@ -28,13 +29,10 @@ import PayScreen from 'screens/PayScreen';
 
 
 
-import { COLOR, ThemeContext, getTheme } from 'react-native-material-ui';
-
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
@@ -58,6 +56,9 @@ const MainStack = createStackNavigator();
       <MainStack.Screen name="UploadDocScreen" component={UploadDocScreen} options={{ headerShown: true, title: 'Upload Document'}}/>
       <MainStack.Screen name="MyLoansScreen" component={MyLoansScreen} options={{ headerShown: false}}/>
       <LoanStack.Screen name="LoanInfoScreen" component={LoanInfoScreen}  options={{ headerShown: true, title: 'Loan Information'}}/>
+      <LoanStack.Screen name="PayScreen" component={PayScreen}  options={{ headerShown: true, title: 'Loan Payback'}}/>
+      <LoanStack.Screen name="AddRegNumberScreen" component={AddRegNumberScreen}  options={{ headerShown: true, title: 'Add Registration Number'}}/>
+
 
     </MainStack.Navigator>
  )
@@ -70,6 +71,7 @@ function LoanStackScreen() {
     <LoanStack.Navigator>
       <LoanStack.Screen name="MyLoansScreen" component={MyLoansScreen}  options={{ headerShown: false}} />
       <LoanStack.Screen name="LoanInfoScreen" component={LoanInfoScreen}  options={{ headerShown: true, title: 'Loan Information'}}/>
+      <LoanStack.Screen name="AddRegNumberScreen" component={AddRegNumberScreen}  options={{ headerShown: true, title: 'Add Registration Number'}}/>
       <LoanStack.Screen name="PayScreen" component={PayScreen}  options={{ headerShown: true, title: 'Loan Payback'}}/>
     </LoanStack.Navigator>
   )

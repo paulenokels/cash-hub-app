@@ -80,6 +80,15 @@ handleBackButtonClick() {
     }
   }
 
+  gotoEligibilityScreen = () => {
+    const { user } = this.state;
+    console.log(user.type_id);
+    if (user.type_id == 1 && !user.reg_number) {
+      return this.props.navigation.navigate('AddRegNumberScreen');
+    }
+    this.props.navigation.navigate('EligibilityStatusScreen')
+  }
+
 
   render() {
     const { user, userSummary } = this.state;
@@ -113,7 +122,8 @@ handleBackButtonClick() {
            
           >
 
-              <TouchableOpacity style={{ flexDirection: 'row', alignSelf: 'center' }} onPress={() => this.props.navigation.navigate('EligibilityStatusScreen')}>
+              <TouchableOpacity style={{ flexDirection: 'row', alignSelf: 'center' }} 
+                                onPress={() => this.gotoEligibilityScreen()}>
                 <Text style={styles.getStartedText}> Apply Now </Text>
                 <Icon onPress={() => { }} name="arrow-right" size={25} style={{ paddingStart: 6 }} color="#fff" />
               </TouchableOpacity>

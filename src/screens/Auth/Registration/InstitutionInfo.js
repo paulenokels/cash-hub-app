@@ -29,6 +29,7 @@ export default class InstitutionInfo extends Component {
 
         this.state = {
             institutionName: '',
+            regNumber:'',
             institutionState: '',
             userTypeId: 0,
             errors: {
@@ -55,9 +56,9 @@ export default class InstitutionInfo extends Component {
         const formValid = await this.validateForm();
         if (formValid) {
             let newUser = await AsyncStorage.getItem('@new_user');
-            const { userTypeId, institutionName, institutionState } = this.state;
+            const { userTypeId, institutionName, regNumber, institutionState } = this.state;
             newUser = JSON.parse(newUser);
-            newUser = {...newUser, type_id: userTypeId, institution_name: institutionName, institution_state: institutionState };
+            newUser = {...newUser, type_id: userTypeId, institution_name: institutionName, institution_state: institutionState, reg_number: regNumber };
             await AsyncStorage.setItem('@new_user', JSON.stringify(newUser));
             this.props.onContinue();
         }
@@ -68,7 +69,7 @@ export default class InstitutionInfo extends Component {
         let formValid = true;
         let errors = {};
         this.setState({errors});
-        const { userTypeId, institutionName, institutionState } = this.state;
+        const { userTypeId, institutionName, institutionState, regNumber } = this.state;
         console.log(userTypeId);
         if (userTypeId == 0) {
             errors.userTypeIdError = "Please select an option.";
@@ -82,6 +83,10 @@ export default class InstitutionInfo extends Component {
 
             if (!institutionState) {
                 errors.institutionStateError = "Please select the state where your institution is located";
+                formValid = false;
+            }
+            if (!regNumber) {
+                errors.regNumberError = "Please your registration number, this can be found on your admission letter";
                 formValid = false;
             }
         } 
@@ -108,6 +113,19 @@ export default class InstitutionInfo extends Component {
                   onChangeText={(institutionName) => {
                       this.setState({ institutionName });
                   }}
+                  
+                  
+                 {...R.pallete.textFieldStyle}
+              />
+
+                <TextField
+                  label='UTME/Registration number'
+                  error={errors.regNumberError}
+                  ref={this.regNumberRef}
+                  onChangeText={(regNumber) => {
+                      this.setState({ regNumber });
+                  }}
+                  
                   
                  {...R.pallete.textFieldStyle}
               />

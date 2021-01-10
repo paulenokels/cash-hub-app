@@ -4,7 +4,8 @@ import {
   Text,
   View,
   Image,
-  ActivityIndicator
+  ActivityIndicator,
+  PermissionsAndroid, Platform 
 } from 'react-native';
 
 import CameraRoll from "@react-native-community/cameraroll";
@@ -33,9 +34,30 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
         this.height = 200//default height
         if (typeof this.props.height !== 'undefined') this.height = this.props.height;
 
-        this.getCameraRollPhotos(20);
+        this.init();
+       
+
     
 
+    }
+
+    init = async() => {
+        const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+
+        const hasPermission = await PermissionsAndroid.check(permission);
+        if (hasPermission) {
+        this.getCameraRollPhotos(20);
+          
+        }
+      
+        else {
+            const status = await PermissionsAndroid.request(permission);
+            console.log(status)
+            if(status === 'granted') {
+                this.getCameraRollPhotos(20);
+            }
+
+        }
     }
     getCameraRollPhotos = async () => {
 
@@ -100,7 +122,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
     }
     
     render() {
-        let { photos, selectedPhotos, loadingMore } = this.state;
+        let { photos, selectedPhotos } = this.state;
         const { multipleSelect } = this.props;
 
         if (photos.length == 0) return null;
@@ -111,6 +133,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
             scrollEventThrottle={400} >
             <View style={{flex:1, flexDirection:'row', flexWrap: "wrap",  justifyContent: "space-between"}}>
             {photos.map((photo,key) => {
+                console.log(photo);
               return (
                 <TouchableOpacity 
                     key={key} 
@@ -123,7 +146,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                             
                         }
                         else if (selectedPhotos.includes(photo)) {
-                            selectedPhotos.splice(selectedPhotos.indexOf(photo), 1);
+                            selectedPhotos.splice(key, 1);
                             this.setState({selectedPhotos});
                         }
                        else if (!selectedPhotos.includes(photo)) {
