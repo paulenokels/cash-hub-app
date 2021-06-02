@@ -86,7 +86,15 @@ handleBackButtonClick() {
     if (user.type_id == 1 && !user.reg_number) {
       return this.props.navigation.navigate('AddRegNumberScreen');
     }
-    this.props.navigation.navigate('EligibilityStatusScreen')
+    //student application
+    else if (user.type_id == 1) {
+      this.props.navigation.navigate('EligibilityStatusScreen');
+    }
+    //non student application
+    else {
+      this.props.navigation.navigate('EmploymentInfoScreen');
+
+    }
   }
 
 

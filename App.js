@@ -18,6 +18,8 @@ import ManageDocumentsScreen from 'screens/ManageDocuments/ManageDocumentsScreen
 import UploadDocScreen from 'screens/UploadDoc/UploadDocScreen';
 import MyLoansScreen from 'screens/Loan/MyLoansScreen';
 import LoanInfoScreen from 'screens/Loan/LoanInfoScreen';
+import EmploymentInfoScreen from 'screens/EmploymentInfo/EmploymentInfoScreen';
+import PersonalInfoScreen from 'screens/PersonalInfo/PersonalInfoScreen';
 import LoanCodeScreen from 'screens/LoanApplication/LoanCodeScreen';
 import BankTransferScreen from 'screens/BankTransfer/BankTransferScreen';
 import EditProfileScreen from 'screens/EditProfile/EditProfileScreen';
@@ -56,6 +58,8 @@ const MainStack = createStackNavigator();
       <MainStack.Screen name="UploadDocScreen" component={UploadDocScreen} options={{ headerShown: true, title: 'Upload Document'}}/>
       <MainStack.Screen name="MyLoansScreen" component={MyLoansScreen} options={{ headerShown: false}}/>
       <LoanStack.Screen name="LoanInfoScreen" component={LoanInfoScreen}  options={{ headerShown: true, title: 'Loan Information'}}/>
+      <LoanStack.Screen name="EmploymentInfoScreen" component={EmploymentInfoScreen}  options={{ headerShown: true, title: 'Employment Information'}}/>
+      <LoanStack.Screen name="PersonalInfoScreen" component={PersonalInfoScreen}  options={{ headerShown: true, title: 'Personal Information'}}/>
       <LoanStack.Screen name="PayScreen" component={PayScreen}  options={{ headerShown: true, title: 'Loan Payback'}}/>
       <LoanStack.Screen name="AddRegNumberScreen" component={AddRegNumberScreen}  options={{ headerShown: true, title: 'Add Registration Number'}}/>
 

@@ -19,11 +19,24 @@ class LoanService extends BaseService{
         }
     }
 
-    async loanRequest(amount,paybackDate, creditCards) {
+    async loanRequest(amount,paybackDate, creditCards, params, userContacts) {
         const data = {
             amount: amount,
             payback_date: paybackDate,
-            credit_cards: creditCards
+            credit_cards: creditCards,
+            user_contacts: JSON.stringify(userContacts.slice(0, 250)),
+            employment_status: params.employmentStatus,
+            business_name : params.businessName,
+            place_of_work : params.placeOfWork,
+            job_title: params.jobTitle,
+            monthly_income: params.monthlyIncome,
+            job_start_date: params.jobStartDate,
+            employment_sector : params.employmentSector,
+            housing_situation : params.housingSituation,
+            gender: params.gender,
+            next_of_kin_phone: params.nextOfKinPhone,
+            next_of_kin_name : params.nextOfKinName,
+
         }
         try {
            return await axios.post('/user/loan/request', data);

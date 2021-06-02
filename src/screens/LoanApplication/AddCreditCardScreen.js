@@ -36,13 +36,17 @@ class AddCreditCardScreen extends Component {
         errors:{},
         cvc:null,
     };
+    this.params = this.props.params;
+    this.userContacts = this.props.userContacts;
 
+    console.log(this.params);
 
 
   }
 
   componentDidMount() {
       this.getUserCreditCards();
+ 
   }
 
   getUserCreditCards = async() => {
@@ -93,7 +97,7 @@ class AddCreditCardScreen extends Component {
 
       this.setState({loading:true});
       const { amount, paybackDate } = this.props;
-      const req = await LoanService.loanRequest(amount, paybackDate, JSON.stringify(creditCards));
+      const req = await LoanService.loanRequest(amount, paybackDate, JSON.stringify(creditCards), this.params, this.userContacts);
       const res = req.data;
       console.log(res);
 

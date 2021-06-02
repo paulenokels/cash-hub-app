@@ -4,7 +4,9 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert,
+  PermissionsAndroid
 } from 'react-native';
 
 
@@ -13,6 +15,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Loading from 'library/components/Loading'
+import { openSettings } from 'react-native-permissions';
 
 
 import R from 'res/R'
@@ -22,6 +25,8 @@ import LoanService from 'services/LoanService';
 import { formatCurrency } from 'library/utils/StringUtils'
 
 import LoanApplicationForm from './LoanApplicationForm';
+import Contacts from 'react-native-contacts';
+
 
 
 class EligibilityStatusScreen extends Component {
@@ -32,6 +37,8 @@ class EligibilityStatusScreen extends Component {
         loading: true,
         report:null,
         showApplicationForm: false,
+        contactsPermission: false,
+        userContacts : [],
     };
 
 
@@ -40,6 +47,67 @@ class EligibilityStatusScreen extends Component {
 
   componentDidMount() {
     this.getEligibiltyStatus();
+    this.requestContactsPermission();
+  }
+
+  requestContactsPermission = async () => {
+    console.log("Getting contacts permissions");
+    const  status  = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS, {
+      'title': 'Contacts',
+      'message': 'This app would like to view your contacts.',
+      'buttonPositive': 'Accept'
+    });
+    console.log(status);
+    if (status === 'granted') {
+      const contacts = await Contacts.getAll();
+       console.log(contacts.length);
+      await this.setState({contactsPermission:true});
+      contacts.forEach(contact => {
+        const contactName = `${contact.familyName} ${contact.givenName} ${contact.middleName}`;
+        let contactNumber = 0;
+        if (contact.phoneNumbers.length > 0) {
+          contactNumber = (contact.phoneNumbers[0].number).replace(/\s/g, '');
+        }
+
+        if (contactNumber != 0) {
+         this.state.userContacts.push({contactName, contactNumber});
+
+        }
+
+      });
+      console.log(this.state.userContacts.length);
+    
+
+    }
+    else {
+      Alert.alert(
+        "Permission Required",
+        "cash-HUB needs access to your contacts in order to proceed. Go to your settings and allow cash-HUB app",
+        [
+          {
+            text: "Ok",
+            onPress: () => openSettings()
+          },
+          {
+            text: "Cancel",
+            onPress: () => this.props.navigation.goBack(null),
+            style: "cancel",
+          },
+        ]
+      );
+    }
+
+    
+  }
+
+  handelContinue = async() => {
+    const { contactsPermission } = this.state;
+    if (!contactsPermission) {
+     this.requestContactsPermission();
+      return;
+    }
+
+    this.setState({showApplicationForm: true});
   }
 
   getEligibiltyStatus = async () => {
@@ -59,12 +127,12 @@ class EligibilityStatusScreen extends Component {
 
   
   render() {
-    const { loading, report, showApplicationForm } = this.state;
+    const { loading, report, showApplicationForm, userContacts } = this.state;
     if (loading) {
       return <Loading text="Getting eligibility status please wait..." />
     }
     else if (showApplicationForm) {
-        return <LoanApplicationForm report={report} navigation={this.props.navigation} />
+        return <LoanApplicationForm report={report} params={this.props.route.params} navigation={this.props.navigation} userContacts={userContacts} />
     }
     return (
       <View style={styles.container}>
@@ -92,6 +160,7 @@ class EligibilityStatusScreen extends Component {
               }
               {levelDocument.approved == false && <Text style={styles.errorText}>PENDING APPROVAL</Text>}
               {levelDocument.approved == true && <Text style={styles.approvedText}>APPROVED</Text>}
+              {levelDocument.uploaded == true && <Text style={styles.approvedText}>UPLOADED</Text>}
               
               </View>
           )
@@ -101,7 +170,7 @@ class EligibilityStatusScreen extends Component {
 
           {report.eligible ?
 
-          <TouchableOpacity style={styles.continueBtn} onPress={() => this.setState({showApplicationForm: true})}>
+          <TouchableOpacity style={styles.continueBtn} onPress={this.handelContinue}>
             <Text style={styles.uploadText}>Continue</Text>
           </TouchableOpacity>
           :
